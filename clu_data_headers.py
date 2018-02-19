@@ -38,7 +38,7 @@ def phead(xy, ML, x2, x3, Lmn, Lmx, LDIR, T):
 
 def dataCL1(tiff_import_options):
     """ALOS, SRTM, ASTER DEMs: residual elevations """
-    print('\n---> ALOS, SRTM, ASTER GDEMs, 1 arc sec, Lat/Lon, WGS84, EGM96')
+    print('\n--> ALOS, SRTM, ASTER GDEMs residual H, 1s lat lon WGS84,EGM96')
 # Main figure labels (title, x-axis, y-axis)
     ML = ['H, m', 'Longitude,DD', 'Latitude, DD']
     # Geograhic extent (X-LON-min, X-LON-max, Y-LAT-min, Y-LAT-max)
@@ -59,7 +59,7 @@ def dataCL1(tiff_import_options):
 
 def dataCL4(tiff_import_options):
     """ALOS, SRTM, ASTER DEMs: residual elevations """
-    print('\n---> ALOS, SRTM, ASTER GDEMs, 1 arcsec, Lat/Lon,WGS84,EGM96')
+    print('\n--> ALOS, SRTM, ASTER GDEMs residual H, 1s lat lon WGS84,EGM96')
 # Main figure labels (title, x-axis, y-axis)
     ML = ['H, m', 'Longitude,DD', 'Latitude, DD']
     # Geograhic extent (X-LON-min, X-LON-max, Y-LAT-min, Y-LAT-max)

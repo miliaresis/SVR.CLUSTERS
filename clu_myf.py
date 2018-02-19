@@ -218,12 +218,28 @@ def create_data_files(data):
     return Ids, LST
 
 
-def compute_descriptive_stats(data, x, lst_or_rlst):
+def define_cluster_matrices(data, k):
+    """create cluster sub-matrices, k= the specific cluster id """
+    cluster_elements = -1
+    for i in range(data.shape[0]):
+        if data[i, 0] == k:
+            cluster_elements = cluster_elements + 1
+    print('   Cluster: ', k, '  size: ', cluster_elements)
+    cluster_matrix = np.zeros(shape=(cluster_elements+1, data.shape[1]))
+    m = -1
+    for i in range(data.shape[0]):
+        if data[i, 0] == k:
+            m = m + 1
+            for l in range(1, data.shape[1]):
+                cluster_matrix[m, l] = data[i, l]
+    return cluster_matrix
+
+
+def compute_descriptive_stats(RLST, x):
     """compute mean, st.dev, kurtosis, skew"""
     from scipy.stats import kurtosis
     from scipy.stats import skew
     import xlsxwriter
-    RLST = data[:, 1:data.shape[1]]
     a = np.zeros(shape=(RLST.shape[1], 6))
     a[:, 0] = RLST.min(axis=0)
     a[:, 1] = RLST.max(axis=0)
@@ -232,12 +248,8 @@ def compute_descriptive_stats(data, x, lst_or_rlst):
     a[:, 4] = skew(RLST, axis=0)
     a[:, 5] = kurtosis(RLST, axis=0)
     y = ['Minimum', 'Maximum', 'Mean', 'St.Dev.', 'Skew', 'Kurtosis']
-    if lst_or_rlst == 'RLST':
-        print('SAVE descriptive Rdata stats to file: descriptives_RLST.xlsx')
-        workbook = xlsxwriter.Workbook('_descriptives_RLST.xlsx')
-    else:
-        print('SAVE descriptive data stats to file: descriptives_LST.xlsx')
-        workbook = xlsxwriter.Workbook('_descriptives_LST.xlsx')
+    print('SAVE descriptive data stats to file: descriptives_LST.xlsx')
+    workbook = xlsxwriter.Workbook('_descriptives_LST.xlsx')
     worksheet5 = workbook.add_worksheet()
     worksheet5.name = 'descriptives'
     worksheet5.write(0, 0, 'descriptive stats')
@@ -257,7 +269,9 @@ def descriptive_stats(data, LABELmonths3, Lx, f, lst_or_rlst):
     f.write('\n Compute & save descriptive statistics')
     No_of_clusters = data[:, 0].max(axis=0)
     print(' > > > > > > > > number of clusters: ', No_of_clusters)
-    compute_descriptive_stats(data, LABELmonths3, lst_or_rlst)
+    datacluster = define_cluster_matrices(data, 1)
+    data2 = datacluster[:, 1:datacluster.shape[1]]
+    compute_descriptive_stats(data2, LABELmonths3)
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
