@@ -218,56 +218,12 @@ def create_data_files(data):
     return Ids, LST
 
 
-def dem_differences_stdev(R):
-    """ Compute st.dev of elevation differences among DEM pairs"""
-    data = np.zeros(shape=(R.shape[1], R.shape[1]))
-    for i in range(0, R.shape[1]-1):
-        for j in range(1, R.shape[1]):
-            if j > i:
-                data[i, j] = (R[:, i] - R[:, j]).std()
-                data[j, i] = data[i, j]
-    return data
-
-
-def dem_differences_absoulte_mean(R):
-    """ Compute absolute mean of elevation differences among DEM pairs"""
-    data = np.zeros(shape=(R.shape[1], R.shape[1]))
-    for i in range(0, R.shape[1]-1):
-        for j in range(1, R.shape[1]):
-            if j > i:
-                data[i, j] = np.absolute((R[:, i] - R[:, j])).mean()
-                data[j, i] = data[i, j]
-    return data
-
-
-def dem_differences_mean(R):
-    """ Compute mean of elevation differences among DEM pairs"""
-    data = np.zeros(shape=(R.shape[1], R.shape[1]))
-    for i in range(0, R.shape[1]-1):
-        for j in range(1, R.shape[1]):
-            if j > i:
-                data[i, j] = (R[:, i] - R[:, j]).mean()
-                data[j, i] = data[i, j]
-    return data
-
-
-def dem_differences_RMS(R):
-    """ Compute RMS of elevation differences among DEM pairs"""
-    data = np.zeros(shape=(R.shape[1], R.shape[1]))
-    for i in range(0, R.shape[1]-1):
-        for j in range(1, R.shape[1]):
-            if j > i:
-                data[i, j] = np.sqrt((R[:, i] - R[:, j]).T.dot(
-                        R[:, i] - R[:, j])/(R.shape[0]-1))
-                data[j, i] = data[i, j]
-    return data
-
-
-def compute_descriptive_stats(RLST, x, lst_or_rlst):
+def compute_descriptive_stats(data, x, lst_or_rlst):
     """compute mean, st.dev, kurtosis, skew"""
     from scipy.stats import kurtosis
     from scipy.stats import skew
     import xlsxwriter
+    RLST = data[:, 1:data.shape[1]]
     a = np.zeros(shape=(RLST.shape[1], 6))
     a[:, 0] = RLST.min(axis=0)
     a[:, 1] = RLST.max(axis=0)
@@ -295,80 +251,13 @@ def compute_descriptive_stats(RLST, x, lst_or_rlst):
     workbook.close()
 
 
-def descriptive_stats_RLST(data, LABELmonths3, Lx, f, lst_or_rlst):
-    """Compute, display & save to xlsx descriptive statistics for Rdata """
-    import matplotlib.pyplot as plt
-    from scipy.stats import kurtosis
-    from scipy.stats import skew
-    print('\nCompute, display & save (to xlsx) descriptive statistics')
-    f.write('\n Compute, display descriptive statistics')
+def descriptive_stats(data, LABELmonths3, Lx, f, lst_or_rlst):
+    """Compute & save to xlsx descriptive statistics for Rdata """
+    print('\nCompute & save (to xlsx) descriptive statistics')
+    f.write('\n Compute & save descriptive statistics')
+    No_of_clusters = data[:, 0].max(axis=0)
+    print(' > > > > > > > > number of clusters: ', No_of_clusters)
     compute_descriptive_stats(data, LABELmonths3, lst_or_rlst)
-    x = np.arange(0, len(Lx), 1)
-    plt.figure(1)
-    plt.xticks(x, Lx)
-    plt.title('Absolute skew, kurtosis')
-    c = abs(kurtosis(data, axis=0))
-    b = abs(skew(data, axis=0))
-    plt.plot(c, marker='D', markersize=4, linestyle='-',
-             color='r', label='|Kurtosis|')
-    plt.plot(b, marker='o', markersize=4, linestyle='--',
-             color='b', label='|Skew|')
-    plt.legend()
-    plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
-    if lst_or_rlst == 'RLST':
-        plt.savefig('RLST_abs_kurtosis_skew.png', dpi=300)
-        f.write('\n    Write Rdata stats to descriptives_RLST.xlsx')
-    else:
-        plt.savefig('LST_abs_kurtosis_skew.png', dpi=300)
-        f.write('\n    Write Rdata stats to descriptives_LST.xlsx')
-    plt.show(1)
-    plt.close("all")
-    f.write('\n    Save absolute kurtosis & skew to abs_kurtosis_skew.png')
-
-
-def print_RMS(Reconstruct, x, filename2, f):
-    """ Write elevation difference stats among DEM pairs to xls file"""
-    import xlsxwriter
-    print('SAVE DEM comparisons: ', filename2)
-    f.write('\n SAVE DEM to DEM comparisons:'+filename2)
-    data = dem_differences_stdev(Reconstruct)
-    workbook = xlsxwriter.Workbook(filename2)
-    worksheet1 = workbook.add_worksheet()
-    worksheet1.write(1, 0, 'stdev among differences among 2 DEMs')
-    worksheet1.name = 'stdev_of_dif'
-    for i in range(0, data.shape[0]):
-        worksheet1.write(1, i+2, x[i])
-        worksheet1.write(i+2, 1, x[i])
-        for j in range(0, data.shape[1]):
-            worksheet1.write(i+2, j+2, str(round(data[i, j], 4)))
-    data = dem_differences_absoulte_mean(Reconstruct)
-    worksheet2 = workbook.add_worksheet()
-    worksheet2.write(1, 0, 'mean absolute difference among 2 DEMs')
-    worksheet2.name = 'abs_mean_dif'
-    for i in range(0, data.shape[0]):
-        worksheet2.write(1, i+2, x[i])
-        worksheet2.write(i+2, 1, x[i])
-        for j in range(0, data.shape[1]):
-            worksheet2.write(i+2, j+2, str(round(data[i, j], 4)))
-    data = dem_differences_RMS(Reconstruct)
-    worksheet3 = workbook.add_worksheet()
-    worksheet3.write(1, 0, 'RMSE among 2 DEMs')
-    worksheet3.name = 'RMSE'
-    for i in range(0, data.shape[0]):
-        worksheet3.write(1, i+2, x[i])
-        worksheet3.write(i+2, 1, x[i])
-        for j in range(0, data.shape[1]):
-            worksheet3.write(i+2, j+2, str(round(data[i, j], 4)))
-    data = dem_differences_mean(Reconstruct)
-    worksheet4 = workbook.add_worksheet()
-    worksheet4.write(1, 0, 'Mean among 2 DEMs')
-    worksheet4.name = 'Mean_dif'
-    for i in range(0, data.shape[0]):
-        worksheet4.write(1, i+2, x[i])
-        worksheet4.write(i+2, 1, x[i])
-        for j in range(0, data.shape[1]):
-            worksheet4.write(i+2, j+2, str(round(data[i, j], 4)))
-    workbook.close()
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
@@ -379,9 +268,7 @@ def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
     Display_yesno2 = input_screen_str_yn(xyxstr)
     if Display_yesno2 == 'Y' or Display_yesno2 == 'y':
         f.write('\n DISPLAY:descriptive stats of input data')
-        data2 = data[:, 1:data.shape[1]]
-        print_RMS(data2, LabelLSTxls, '_initial_DEMS_DIF_stats.xlsx', f)
-        descriptive_stats_RLST(data2, LabelLSTxls, LabelLST, f, 'LST')
+        descriptive_stats(data, LabelLSTxls, LabelLST, f, 'LST')
     f.close()
     from os import chdir
     chdir(oldpath)
