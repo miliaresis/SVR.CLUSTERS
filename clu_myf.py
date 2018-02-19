@@ -16,16 +16,19 @@ def Processing_constants():
               if PIL  then Image from PIL is used
               if SKITimage  then skimage.io is used """
     print('__________________________________________________________________')
-    print('\n --- Cluster analysis by G. Ch. Miliaresis ---\n')
+    print('\n --- Cluster visualization & analysis by G. Ch. Miliaresis ---\n')
+    print('   Vector data model differs from SVR & SVR.DEM')
+    print('      MASK [0=no data, >1 for cluster classes], 01, 02,... for the')
+    print('      feature images (eg. residual H for ALOS, SRTM, ASTER)')
     tiff_import_options = ['PIL', 'SKITimage']
-    print('Processing options: \n  TIFF import ', tiff_import_options, '\n ')
+    print('   TIFF import options', tiff_import_options)
     print('__________________________________________________________________')
     print('\nDISPLAY ACTIVE DATA HEADER')
     return tiff_import_options
 
 
 def filenames_of_images(k):
-    """ Defines the filenames of images  MASK, 01, 02, 03 """
+    """ Defines the filenames of images  MASK, 01, 02, 03 .... """
     a = '0'
     Lfiles = ['MASK']
     for i in range(k):
@@ -177,9 +180,9 @@ def readimagetiff(Ldatafiles, T):
         print('\n      Vector data dimensions : ', data.shape)
         m = -1
         for i in range(img0.shape[0]):
-            if img0[i] > 0:
+            if img0[i] >= 0:
                 m = m + 1
-                data[m, 0] = i+1
+                data[m, 0] = img0[i]
                 for k in range(1, len(Ldatafiles)):
                     data[m, k] = img[i, k]
     else:
@@ -213,289 +216,6 @@ def create_data_files(data):
     LST = np.zeros(shape=(rows, data.shape[1]-1))
     LST = data[:, 1:data.shape[1]]
     return Ids, LST
-
-
-def standardize_matrix2(A):
-    """standardize a 2-d matrix per columns"""
-    B = (A - np.mean(A, axis=0)) / np.std(A, axis=0)
-    return B
-
-
-def crosscorrelate(LST):
-    """ compute the crosscorrelation matrix"""
-    LST2 = standardize_matrix2(LST)
-    crosscorrelation = LST2.T.dot(LST2)/(LST2.shape[0]-1)
-    return crosscorrelation
-
-
-def translatebymean(LST):
-    """ Translate a matrix by mean (per columns)"""
-    LSTMEAN = LST.mean(axis=0)
-    LST2 = LST - LSTMEAN.T
-    return LST2
-
-
-def retranslatebymean(LST, RLST):
-    """ RETranslate a matrix by mean vector (per columns)"""
-    LSTMEAN = LST.mean(axis=0)
-    RLST = RLST + LSTMEAN.T
-    return RLST
-
-
-def covariance_matrix(LST2):
-    """ Compoute variance-covariance matrix"""
-    covmat = LST2.T.dot(LST2)/(LST2.shape[0]-1)
-    return covmat
-
-
-def sortdescent(evs, evmat):
-    """sort eigenvalues-eigenvectors in descenting eigenvalue magnitude """
-    i = np.argsort(evs)[::-1]
-    evs = evs[i]
-    evmat = evmat[:, i]
-    evs_percent = np.zeros(shape=(evs.shape[0]))
-    evs_percent = (100 * evs / np.sum(evs))
-    return evs, evmat, evs_percent
-
-
-def pcanew(LST):
-    """ compute eigevalues, & eigenvectors"""
-    from scipy import linalg
-    LST2 = translatebymean(LST)
-    covmat = covariance_matrix(LST2)
-    evs, evmat = linalg.eig(covmat)
-    evs = np.real(evs)
-    evmat = np.real(evmat)
-    evs, evmat, evs_percent = sortdescent(evs, evmat)
-    return evs_percent, covmat, evs, evmat
-
-
-def Reconstruct_matrix(evmat, LST):
-    """ Inverse transform keep pc-1 only """
-    X = np.zeros(shape=(evmat.shape[0], 1))
-    X[:, 0] = evmat[:, 0]
-    Y = X.T
-    Z = np.dot(X, Y)
-    Reconstruct = np.dot(LST, Z)
-    return Reconstruct
-
-
-def Reconstruct_matrix2(evmat, LST):
-    """ Inverse transform keep pc2 & pc3 only """
-    X = np.zeros(shape=(evmat.shape[0], 2))
-    X[:, :] = evmat[:, 1:2]
-    Y = X.T
-    Z = np.dot(X, Y)
-    Reconstruct = np.dot(LST, Z)
-    return Reconstruct
-
-
-def xlspca(data, data1, data2, data3, x):
-    """ write correlation matrix, eigen-vectors/values to xls file"""
-    import xlsxwriter
-    print('Create pca.xlsx')
-    workbook = xlsxwriter.Workbook('_pca.xlsx')
-    worksheet1 = workbook.add_worksheet()
-    print('   write cross correlation matrix')
-    worksheet1.write(1, 0, 'Cross Correlation')
-    worksheet1.name = 'Cross_correlation'
-    for i in range(0, data.shape[0]):
-        worksheet1.write(1, i+2, x[i])
-        worksheet1.write(i+2, 1, x[i])
-        for j in range(0, data.shape[1]):
-            worksheet1.write(i+2, j+2, str(round(data[i, j], 4)))
-    worksheet2 = workbook.add_worksheet()
-    worksheet2.name = 'Eigenvectors'
-    print('   write eigenvalues & eigenvectors')
-    for i in range(0, data1.shape[0]):
-        worksheet2.write(1, i+2, 'PC'+str(i+1))
-        worksheet2.write(i+2, 1, 'Eigenvector '+str(i+1))
-        for j in range(0, data1.shape[1]):
-            worksheet2.write(i+2, j+2, data1[i, j])
-        worksheet2.write(data1.shape[0]+2, i+2, data2[i])
-        worksheet2.write(data1.shape[0]+3, i+2, data3[i])
-    worksheet2.write(data1.shape[0]+2, 1, 'EIGENVALUE')
-    worksheet2.write(data1.shape[0]+3, 1, 'Variance %')
-    workbook.close()
-
-
-def prnxls_confuse(workbook, data2):
-    """Add confusion matrix to an xls sheet within a workbook """
-    all_elements = data2.sum()
-    all_correct = sum(data2[i][i] for i in range(0, data2.shape[1]))
-    reclassified = (1 - all_correct / all_elements) * 100
-    worksheet3 = workbook.add_worksheet()
-    worksheet3.name = 'Confusion_matrix'
-    worksheet3.write(0, 0, 'Confusion Matrix')
-    worksheet3.write(data2.shape[1]+2, 0, 'Correct')
-    worksheet3.write(data2.shape[1]+2, 1, all_correct)
-    worksheet3.write(data2.shape[1]+3, 0, 'out of')
-    worksheet3.write(data2.shape[1]+3, 1, all_elements)
-    worksheet3.write(data2.shape[1]+4, 0, '% reclassified')
-    worksheet3.write(data2.shape[1]+4, 1, reclassified)
-    for i in range(0, data2.shape[1]):
-        worksheet3.write(1, i+2, 'B-' + str(i+1))
-        for j in range(0, data2.shape[0]):
-            worksheet3.write(j+2, i+2, data2[j, i])
-    for i in range(0, data2.shape[0]):
-        worksheet3.write(i+2, 1, 'A-' + str(i+1))
-    return all_elements, all_correct, reclassified
-
-
-def prn_xls_centroids(workbook, Centroids, LabelLST):
-    """ write Centroids matrix to a sheet of an excel workbook"""
-    worksheet1 = workbook.add_worksheet()
-    worksheet1.name = 'Centroids'
-    worksheet1.write(0, 0, 'Cluster centers')
-    for i in range(0, Centroids.shape[1]):
-        worksheet1.write(1, i+2, LabelLST[i])
-        for j in range(0, Centroids.shape[0]):
-            worksheet1.write(j+2, i+2, Centroids[j, i])
-    for i in range(0, Centroids.shape[0]):
-        worksheet1.write(i+2, 1, 'cluster ' + str(i+1))
-
-
-def prn_xls_sigma(workbook, sigma, LabelLST):
-    """ write compute stdev from Sigma (variance), write to excel workbook"""
-    worksheet2 = workbook.add_worksheet()
-    worksheet2.name = 'Centroid_stdev'
-    worksheet2.write(0, 0, 'Centroids st.dev (sqrt of sigma)')
-    sigma = np.sqrt(sigma)
-    for i in range(0, sigma.shape[1]):
-        worksheet2.write(1, i+2, LabelLST[i])
-        for j in range(0, sigma.shape[0]):
-            worksheet2.write(j+2, i+2, sigma[j, i])
-    for i in range(0, sigma.shape[0]):
-        worksheet2.write(i+2, 1, 'cluster ' + str(i+1))
-
-
-def prn_xls_divergence(workbook, Diverg):
-    """ write Divergence matrix to a sheet of an excel workbook"""
-    worksheet4 = workbook.add_worksheet()
-    worksheet4.name = 'Divergence'
-    worksheet4.write(0, 0, 'Divergence of cluster centroids')
-    divcell = (((Diverg.shape[0])*(Diverg.shape[0]))-(Diverg.shape[0])) / 2
-    divsum = Diverg.sum() / divcell
-    worksheet4.write(0, 2, 'Mean divergence')
-    worksheet4.write(0, 3, divsum)
-    for i in range(0, Diverg.shape[1]):
-        worksheet4.write(1, i+2, 'cluster' + str(i+1))
-        for j in range(0, Diverg.shape[0]):
-            worksheet4.write(j+2, i+2, Diverg[j, i])
-    for i in range(0, Diverg.shape[0]):
-        worksheet4.write(i+2, 1, 'cluster' + str(i+1))
-
-
-def prn_xls_cluster_membership(workbook, CLlabels):
-    """compute & write cluster membership to excel file """
-    worksheet5 = workbook.add_worksheet()
-    worksheet5.name = 'Cluster_membership'
-    worksheet5.write(0, 0, 'Count cluster members')
-    worksheet5.write(1, 1, 'Cluster ID')
-    worksheet5.write(1, 2, 'membership')
-    worksheet5.write(1, 3, '%')
-    rows = CLlabels.shape[0]
-    i = CLlabels.max(axis=0)+1
-    data5 = np.zeros(shape=(i))
-    for l in range(rows):
-        data5[CLlabels[l]] = data5[CLlabels[l]]+1
-    for i in range(0, data5.shape[0]):
-        worksheet5.write(i+2, 1, str(i+1))
-        worksheet5.write(i+2, 2, data5[i])
-        worksheet5.write(i+2, 3, 100 * data5[i] / rows)
-
-
-def Kmeans_init(number_of_clusters):
-    """Kmeans initialization """
-    from sklearn.cluster import KMeans
-    clf = KMeans(n_clusters=number_of_clusters, init='k-means++', n_init=10,
-                 max_iter=500, tol=0.00001, precompute_distances='auto',
-                 verbose=0, random_state=None, copy_x=True, n_jobs=1)
-    return clf
-
-
-def centroids_visualize(data, figuretitle, Lx, MDLabel):
-    """Visualize centroids"""
-    import matplotlib.pyplot as plt
-    print('\nVisualize & SAVE: ', figuretitle+'.png')
-    x = np.arange(0, len(Lx), 1)
-    plt.figure(1)
-    plt.xticks(x, Lx)
-    plt.ylabel(MDLabel[0], fontsize=12, color='b')
-    plt.title(figuretitle, fontsize=15, color='r')
-    a = np.zeros(shape=(data.shape[1]))
-    for i in range(0, data.shape[0]):
-        for j in range(0, data.shape[1]):
-            a[j] = data[i, j]
-        plt.plot(a, label=str(i+1))
-    plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
-    plt.savefig('__'+figuretitle+'.png', dpi=300)
-    plt.show(1)
-    plt.close("all")
-
-
-def write2classconvergece(a, iteration):
-    """ Save mean inertia convergence to xlsx file """
-    import xlsxwriter
-    print('\nSave mean inertia convergence to file: convergence_NBG.xlsx')
-    workbook = xlsxwriter.Workbook('_convergence_NBG.xlsx')
-    worksheet5 = workbook.add_worksheet()
-    worksheet5.name = 'NBG_convergence'
-    worksheet5.write(0, 0, 'Convergence of NBG classification (by mean div)')
-    worksheet5.write(1, 1, 'Iterations')
-    worksheet5.write(1, 2, 'Percent reclassified')
-    worksheet5.write(1, 3, 'Number of reclassified')
-    worksheet5.write(1, 4, 'Mean divergence')
-    for i in range(1, iteration+1):
-        worksheet5.write(i+2, 1, str(a[i, 0]))
-        worksheet5.write(i+2, 2, str(a[i, 1]))
-        worksheet5.write(i+2, 3, a[i, 2])
-        worksheet5.write(i+2, 4, a[i, 3])
-    workbook.close()
-
-
-def clusterRefineNBG(CM, centroid, iteration, centroid_variance, bb):
-    """ Clustering refinements by NBG,
-        display mean standardized divergence (n*n)-n, n=clusters"""
-    from sklearn.metrics import pairwise_distances
-    all_elements = CM.sum()
-    all_correct = sum(CM[i][i] for i in range(0, CM.shape[1]))
-    reclassified = (1 - all_correct / all_elements) * 100
-    reclassified2 = all_elements - all_correct
-    xxyy = (centroid - centroid_variance) / centroid_variance
-    unifor = pairwise_distances(xxyy, metric='euclidean')
-    xyz = (unifor.shape[0] * unifor.shape[0]) - unifor.shape[0]
-    divsum = unifor.sum() / xyz
-    print(' %3.0f    %0.4f          ( %5.0f )           %.6f' % (iteration,
-                                                                 reclassified,
-                                                                 reclassified2,
-                                                                 divsum))
-    bb[iteration, 0] = iteration
-    bb[iteration, 1] = reclassified
-    bb[iteration, 2] = reclassified2
-    bb[iteration, 3] = divsum
-    return bb, reclassified2
-
-
-def creatematrix(rows, cols, ids, labels):
-    """ vector to image matrix"""
-    total = (rows * cols)
-    labels2 = np.zeros(shape=(total))
-    for i in range(0, ids.shape[0]):
-        k = int(ids[i]-1)
-        labels2[k] = labels[i]+1
-    b = np.reshape(labels2, (rows, cols))
-    return b
-
-
-def CreateMask_fromCluster(c):
-    """Create mask matrix from cluster image matrix """
-    mask = np.zeros(shape=(c.shape[0], c.shape[1]))
-    for i in range(0, c.shape[0]):
-        for j in range(0, c.shape[1]):
-            if c[i, j] > 0:
-                mask[i, j] = 1
-    return mask
 
 
 def dem_differences_stdev(R):
@@ -575,75 +295,6 @@ def compute_descriptive_stats(RLST, x, lst_or_rlst):
     workbook.close()
 
 
-def plotmatrix(c, xyrange, lut, name1, yesno, MDLabel):
-    """plot a matrix """
-    import matplotlib.pyplot as plt
-    plt.figure(1)
-    plt.imshow(c, cmap=lut, aspect='equal', extent=xyrange)
-    if yesno == 'y':
-        plt.colorbar(label=MDLabel[0])
-    plt.xlabel(MDLabel[1])
-    plt.ylabel(MDLabel[2])
-    plt.title(name1)
-    plt.savefig(name1+'.png', dpi=300)
-    plt.show(1)
-    plt.close("all")
-
-
-def savematrix2image(c, name1):
-    """save image to tif file """
-    import scipy.misc
-    print('SAVE CLUSTER IMAGE to:')
-    scipy.misc.toimage(c, high=np.max(c), low=np.min(c),
-                       mode='I').save(name1 + '.tif')
-    print('   ', name1 + '.tif', '(16 bit, in true [min, max])')
-
-
-def savevector_to_CSV(c, name1, f):
-    """save vector data (derived from input images) to CSV files """
-    xyxstr = 'Save the VECTOR DATA derived from images to a csv file ?'
-    Display_yesno2 = input_screen_str_yn(xyxstr)
-    if Display_yesno2 == 'Y' or Display_yesno2 == 'y':
-        name1 = name1 + '.csv'
-        np.savetxt(name1, c, fmt='%.1f', delimiter=',')
-        print('\nSAVE vector data to CSV file (1st col = mask ID): ', name1)
-        f.write('\n SAVE vector data to CSV file (1st col = mask ID): '+name1)
-
-
-def display_RLST(rows, cols, xyrange, data, RLST, x, f, MDLabel):
-    """ display Rdata images and save to png/tif files """
-    import scipy.misc
-    print('\nVisualize the R(data) images')
-    f.write('\n VISUALIZE & SAVE (png/tif) the Rdata images')
-    ids = np.zeros(shape=(data.shape[0], 1))
-    ids[:, 0] = data[:, 0]
-    labels = np.zeros(shape=(data.shape[0], 1))
-    Display_yesno3 = input_screen_str_yn('Save Rdata images to TIF files? ')
-    for i in range(0, RLST.shape[1]):
-        labels[:, 0] = RLST[:, i]
-        c = creatematrix(rows,  cols, ids, labels)
-        RLSTname = 'R' + str(i+1) + '_' + x[i]
-        f.write('\n    ' + RLSTname)
-        plotmatrix(c, xyrange, 'Greys', RLSTname, 'y', MDLabel)
-        if Display_yesno3 == 'Y' or Display_yesno3 == 'y':
-            scipy.misc.toimage(c, high=np.max(c), low=np.min(c),
-                               mode='I').save(RLSTname + '.tif')
-
-
-def display_LST(rows, cols, xyrange, data, x, f, MDLabel):
-    """ display data images and save to png/tiff files """
-    print('VISUALIZE & SAVE (png) the data images')
-    f.write('\n   VISUALIZE & SAVE (png) the data images')
-    ids, LST = create_data_files(data)
-    labels = np.zeros(shape=(data.shape[0], 1))
-    for i in range(0, LST.shape[1]):
-        labels[:, 0] = LST[:, i]
-        c = creatematrix(rows,  cols, ids, labels)
-        RLSTname = 'L' + str(i+1) + '_' + x[i]
-        f.write('\n      ' + RLSTname)
-        plotmatrix(c, xyrange, 'Greys', RLSTname, 'y', MDLabel)
-
-
 def descriptive_stats_RLST(data, LABELmonths3, Lx, f, lst_or_rlst):
     """Compute, display & save to xlsx descriptive statistics for Rdata """
     import matplotlib.pyplot as plt
@@ -673,64 +324,6 @@ def descriptive_stats_RLST(data, LABELmonths3, Lx, f, lst_or_rlst):
     plt.show(1)
     plt.close("all")
     f.write('\n    Save absolute kurtosis & skew to abs_kurtosis_skew.png')
-
-
-def printNPP(RLST, x, f, lst_or_rlst):
-    """print normal propability plot """
-    from scipy import stats
-    import matplotlib.pyplot as plt
-    from sklearn.preprocessing import scale
-    f.write('\n Display & write NPP files')
-    for X in range(RLST.shape[1]):
-        plt.figure(X)
-        standardized_X = scale(RLST[:, X], axis=0)
-        stats.probplot(standardized_X, plot=plt)
-        plt.title(x[X])
-        if lst_or_rlst == 'RLST':
-            plt.savefig('NPP_RH' + str(X+1) + '.png', dpi=300)
-            f.write('\n    NPP_RH' + str(X+1) + '.png')
-        else:
-            plt.savefig('NPP_H' + str(X+1) + '.png', dpi=300)
-            f.write('\n    NPP_H' + str(X+1) + '.png')
-        plt.show(X)
-        plt.close("all")
-
-
-def printHST(RLST, Fstring, xmin, xmax, x, f, MDLabel):
-    """ print histogram of LST/RLST"""
-    import matplotlib.pyplot as plt
-    print('DISPLAY & PRINT histograms for', Fstring, ' data')
-    f.write('\n   DISPLAY & PRINT histograms for ' + Fstring + ' data')
-    if Fstring == 'LST':
-        ids, LST = create_data_files(RLST)
-        RLST = LST
-    for X in range(RLST.shape[1]):
-        plt.figure(1)
-        plt.hist(RLST[:, X], bins=200, range=[xmin, xmax], normed=True,
-                 edgecolor='white')
-        plt.title(x[X])
-        plt.xlabel(MDLabel[0])
-        plt.ylabel("Frequency")
-        plt.savefig('H_' + Fstring + str(X+1) + '.png',  dpi=300)
-        f.write('\n       H_' + Fstring + str(X+1) + '.png')
-        plt.show(1)
-    plt.close("all")
-
-
-def printRLST_correlation(data, x):
-    """ write Rdata cross correlation matrix to xls file"""
-    import xlsxwriter
-    print('Create RLST_correlation.xlsx')
-    workbook = xlsxwriter.Workbook('_RLST_correlation.xlsx')
-    worksheet1 = workbook.add_worksheet()
-    worksheet1.write(1, 0, 'Cross Correlation')
-    worksheet1.name = 'Cross_correlation'
-    for i in range(0, data.shape[0]):
-        worksheet1.write(1, i+2, x[i])
-        worksheet1.write(i+2, 1, x[i])
-        for j in range(0, data.shape[1]):
-            worksheet1.write(i+2, j+2, str(round(data[i, j], 4)))
-    workbook.close()
 
 
 def print_RMS(Reconstruct, x, filename2, f):
@@ -787,7 +380,6 @@ def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
     if Display_yesno2 == 'Y' or Display_yesno2 == 'y':
         f.write('\n DISPLAY:descriptive stats of input data')
         data2 = data[:, 1:data.shape[1]]
-        savevector_to_CSV(data, 'vectors', f)
         print_RMS(data2, LabelLSTxls, '_initial_DEMS_DIF_stats.xlsx', f)
         descriptive_stats_RLST(data2, LabelLSTxls, LabelLST, f, 'LST')
     f.close()

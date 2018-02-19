@@ -18,7 +18,8 @@ def phead(xy, ML, x2, x3, Lmn, Lmx, LDIR, T):
         DATA files stored in a subdir named  data within the dir where the
         3 scripts are stored.
        The tif image filenames (in the data dir) are fixed :
-         MASK [0, 1 for data], & 01, 02, 03 for the 3 DEMs (ALOS, SRTM, ASTER)
+         MASK [0 for no data and >1 for cluster classes], & 01, 02, 03 etc. for
+         the feature images (eg. residual eleavations ALOS, SRTM, ASTER, NED)
          THE NAMES ARE CASE SENSITIVE and they are
          determined automatically from the script (as well as the dimension of
          the feature space -> length of tics list), so you should preserve them
