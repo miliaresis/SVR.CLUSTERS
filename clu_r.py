@@ -3,7 +3,7 @@
 Created on  17th of Jan., 2018vd
 a
 @author: gmiliar (George Ch. Miliaresis)
-Cluster analysis/modelling (SVR.CLU) by G.Ch. Miliaresis
+Cluster analysis/modelling (SVR.CLUSTER) by G.Ch. Miliaresis
 Ver. 2017.02 winpython implementation, (https://winpython.github.io/)
 Details in https://github.com/miliaresis
            https://sites.google.com/site/miliaresisg/

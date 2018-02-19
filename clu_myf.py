@@ -224,7 +224,8 @@ def define_cluster_matrices(data, k):
     for i in range(data.shape[0]):
         if data[i, 0] == k:
             cluster_elements = cluster_elements + 1
-    print('   Cluster: ', k, '  size: ', cluster_elements)
+    file_xxx = '_descriptive' + str(k) + '.xlsx'
+    print('   Cluster: ', k, '  size: ', cluster_elements, ' ', file_xxx)
     cluster_matrix = np.zeros(shape=(cluster_elements+1, data.shape[1]))
     m = -1
     for i in range(data.shape[0]):
@@ -235,7 +236,7 @@ def define_cluster_matrices(data, k):
     return cluster_matrix
 
 
-def compute_descriptive_stats(RLST, x):
+def compute_descriptive_stats(RLST, x, cluster_id):
     """compute mean, st.dev, kurtosis, skew"""
     from scipy.stats import kurtosis
     from scipy.stats import skew
@@ -248,8 +249,8 @@ def compute_descriptive_stats(RLST, x):
     a[:, 4] = skew(RLST, axis=0)
     a[:, 5] = kurtosis(RLST, axis=0)
     y = ['Minimum', 'Maximum', 'Mean', 'St.Dev.', 'Skew', 'Kurtosis']
-    print('SAVE descriptive data stats to file: descriptives_LST.xlsx')
-    workbook = xlsxwriter.Workbook('_descriptives_LST.xlsx')
+    file_xxx = '_descriptive' + str(cluster_id) + '.xlsx'
+    workbook = xlsxwriter.Workbook(file_xxx)
     worksheet5 = workbook.add_worksheet()
     worksheet5.name = 'descriptives'
     worksheet5.write(0, 0, 'descriptive stats')
@@ -268,10 +269,10 @@ def descriptive_stats(data, LABELmonths3, Lx, f, lst_or_rlst):
     print('\nCompute & save (to xlsx) descriptive statistics')
     f.write('\n Compute & save descriptive statistics')
     No_of_clusters = data[:, 0].max(axis=0)
-    print(' > > > > > > > > number of clusters: ', No_of_clusters)
-    datacluster = define_cluster_matrices(data, 1)
-    data2 = datacluster[:, 1:datacluster.shape[1]]
-    compute_descriptive_stats(data2, LABELmonths3)
+    for cluster_id in range(1, int(No_of_clusters)+1):
+        datacluster = define_cluster_matrices(data, cluster_id)
+        data2 = datacluster[:, 1:datacluster.shape[1]]
+        compute_descriptive_stats(data2, LABELmonths3, cluster_id)
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
