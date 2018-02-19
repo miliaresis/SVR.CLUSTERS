@@ -218,7 +218,7 @@ def create_data_files(data):
     return Ids, LST
 
 
-def define_cluster_matrices(data, k):
+def define_cluster_matrices(data, k, f):
     """create cluster sub-matrices, k= the specific cluster id """
     cluster_elements = -1
     for i in range(data.shape[0]):
@@ -226,6 +226,7 @@ def define_cluster_matrices(data, k):
             cluster_elements = cluster_elements + 1
     file_xxx = '_descriptive' + str(k) + '.xlsx'
     print('   Cluster: ', k, '  size: ', cluster_elements, ' ', file_xxx)
+    f.write('\n' + file_xxx + ' pixels: ' + str(cluster_elements))
     cluster_matrix = np.zeros(shape=(cluster_elements+1, data.shape[1]))
     m = -1
     for i in range(data.shape[0]):
@@ -270,7 +271,7 @@ def descriptive_stats(data, LABELmonths3, Lx, f, lst_or_rlst):
     f.write('\n Compute & save descriptive statistics')
     No_of_clusters = data[:, 0].max(axis=0)
     for cluster_id in range(1, int(No_of_clusters)+1):
-        datacluster = define_cluster_matrices(data, cluster_id)
+        datacluster = define_cluster_matrices(data, cluster_id, f)
         data2 = datacluster[:, 1:datacluster.shape[1]]
         compute_descriptive_stats(data2, LABELmonths3, cluster_id)
 
