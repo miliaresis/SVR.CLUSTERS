@@ -265,7 +265,25 @@ def compute_descriptive_stats(RLST, x, cluster_id):
     workbook.close()
 
 
-def descriptive_stats(data, LABELmonths3, Lx, f, lst_or_rlst):
+def scatter_2d_plots(data2, LL, c_id, f):
+    """ Display 2d scatter plots """
+    import matplotlib.pyplot as plt
+    k = data2.shape[1]
+    for i in range(k):
+        for l in range(k):
+            if i > l:
+                title = "cluster_" + str(c_id) + "_" + LL[i] + "_" + LL[l]
+                plt.figure()
+                plt.title("cluster: " + str(c_id))
+                plt.scatter(data2[:, i], data2[:, l])
+                plt.xlabel(LL[i])
+                plt.ylabel(LL[l])
+                plt.savefig(title + '.png', dpi=300)
+                plt.show()
+                plt.close("all")
+
+
+def descriptive_stats(data, LABELmonths3, f, lst_or_rlst):
     """Compute & save to xlsx descriptive statistics for Rdata """
     print('\nCompute & save (to xlsx) descriptive statistics')
     f.write('\n Compute & save descriptive statistics')
@@ -274,6 +292,7 @@ def descriptive_stats(data, LABELmonths3, Lx, f, lst_or_rlst):
         datacluster = define_cluster_matrices(data, cluster_id, f)
         data2 = datacluster[:, 1:datacluster.shape[1]]
         compute_descriptive_stats(data2, LABELmonths3, cluster_id)
+        scatter_2d_plots(data2, LABELmonths3, cluster_id, f)
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
@@ -284,7 +303,7 @@ def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
     Display_yesno2 = input_screen_str_yn(xyxstr)
     if Display_yesno2 == 'Y' or Display_yesno2 == 'y':
         f.write('\n DISPLAY:descriptive stats of input data')
-        descriptive_stats(data, LabelLSTxls, LabelLST, f, 'LST')
+        descriptive_stats(data, LabelLSTxls, f, 'LST')
     f.close()
     from os import chdir
     chdir(oldpath)

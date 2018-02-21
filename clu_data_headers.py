@@ -73,6 +73,6 @@ def dataCL4(tiff_import_options):
 # PIL Library is used for TIF file import
     T = tiff_import_options[0]
 # Sub-directory for image files or vector matrix
-    LDIR = 'dataCL2'
+    LDIR = 'dataCL4'
     phead(xy, ML, x2, x3, Lmin, Lmax, LDIR, T)
     return (xy, ML, x2, x3, Lmin, Lmax, LDIR, T)
