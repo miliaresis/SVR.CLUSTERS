@@ -275,7 +275,7 @@ def scatter_2d_plots(data2, LL, c_id, f):
                 title = "cluster_" + str(c_id) + "_" + LL[i] + "_" + LL[l]
                 plt.figure()
                 plt.title("cluster: " + str(c_id))
-                plt.scatter(data2[:, i], data2[:, l])
+                plt.scatter(data2[:, i], data2[:, l], 1, marker="+")
                 plt.xlabel(LL[i])
                 plt.ylabel(LL[l])
                 plt.savefig(title + '.png', dpi=300)
