@@ -220,12 +220,12 @@ def create_data_files(data):
 
 def define_cluster_matrices(data, k, f):
     """create cluster sub-matrices, k= the specific cluster id """
-    cluster_elements = -1
+    cluster_elements = 0
     for i in range(data.shape[0]):
         if data[i, 0] == k:
             cluster_elements = cluster_elements + 1
     file_xxx = '_descriptive' + str(k) + '.xlsx'
-    print('   Cluster: ', k, '  size: ', cluster_elements, ' ', file_xxx)
+    print('   Cluster: ', k)
     f.write('\n' + file_xxx + ' pixels: ' + str(cluster_elements))
     cluster_matrix = np.zeros(shape=(cluster_elements+1, data.shape[1]))
     m = -1
@@ -239,20 +239,20 @@ def define_cluster_matrices(data, k, f):
 
 def test_call(data, LABELmonths3, f):
     """Compute & save to xlsx descriptive statistics for Rdata """
-    print('\nCompute & save (to xlsx) descriptive statistics')
-    f.write('\n Compute & save descriptive statistics')
+    print('\n Main call that defines cluster matrices for further processing')
+    f.write('\n Define cluster matrices for further processing')
     No_of_clusters = data[:, 0].max(axis=0)
     for cluster_id in range(1, int(No_of_clusters)+1):
         datacluster = define_cluster_matrices(data, cluster_id, f)
         data2 = datacluster[:, 1:datacluster.shape[1]]
-        print('cluster: ', cluster_id, ' data dimensions: ', data2.shape)
+        print('           ', data2.shape)
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
             Hmin, Hmax):
     """ Main run module of SVR_CLU.py"""
     f, oldpath = findpaths_data2csv(data)
-    xyxstr = 'Display statistics of input Data ? '
+    xyxstr = 'Define cluster matrices ? '
     Display_yesno2 = input_screen_str_yn(xyxstr)
     if Display_yesno2 == 'Y' or Display_yesno2 == 'y':
         f.write('\n DISPLAY:descriptive stats of input data')
