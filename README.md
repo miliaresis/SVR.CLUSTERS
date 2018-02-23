@@ -3,7 +3,4 @@
 * Input is the Cluster image (MASK.TIF) as well as the images used in clustering (eg. pc2, pc3 reconstructed DEMS) under the naming convention 01.tif, 02.tif, 03.tif, etc. etc.
 * The vector data model inside the SVR.CLUSTERS differs from SVR & SVR.DEM projects, since the first column indicate a) 0 for no-data, and b) 1, 2 ... for cluster classes, while the next columns correspond to image data files (01, 02, 03 ..), for example the residual elevations of ALOS, SRTM, ASTER.
 
-# Data
-  * Multi-(3-d) dimensional (ALOS {median}, SRTM, ASTER) DEM of SE Zagros Ranges, Mendeley Data, v.11, _**http://dx.doi.org/10.17632/bswsr3gpy2.11**_ (see file clusters_feature_space_visualization.zip)
-
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping.png)
