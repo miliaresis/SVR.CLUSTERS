@@ -18,7 +18,7 @@ import clu_data_headers
 tiff_import_options = Processing_constants()
 #  2nd FUNCTION CALL ---------------Selects the data file (header) to work with
 [GeoExtent, FigureLabels, LabelLST, LabelLSTxls, Lmin, Lmax,
- LDatadir, Tiffimporttype] = clu_data_headers.dataCL1(tiff_import_options)
+ LDatadir, Tiffimporttype] = clu_data_headers.dataCL4(tiff_import_options)
 #  3rd FUNCTION CALL -------------- IMPORTS the data files, creates the vectors
 data, row, col, continue1 = data_imv_read(LDatadir, len(LabelLST),
                                           Tiffimporttype)
