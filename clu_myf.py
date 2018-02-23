@@ -220,12 +220,12 @@ def create_data_files(data):
 
 def define_cluster_matrices(data, k, f):
     """create cluster sub-matrices, k= the specific cluster id """
-    cluster_elements = 0
+    cluster_elements = -1
     for i in range(data.shape[0]):
         if data[i, 0] == k:
             cluster_elements = cluster_elements + 1
     file_xxx = '_descriptive' + str(k) + '.xlsx'
-    print('   Cluster: ', k)
+    print('   Cluster: ', k, '  size: ', cluster_elements, ' ', file_xxx)
     f.write('\n' + file_xxx + ' pixels: ' + str(cluster_elements))
     cluster_matrix = np.zeros(shape=(cluster_elements+1, data.shape[1]))
     m = -1
@@ -237,26 +237,67 @@ def define_cluster_matrices(data, k, f):
     return cluster_matrix
 
 
-def test_call(data, LABELmonths3, f):
+def compute_descriptive_stats(RLST, x, cluster_id):
+    """compute min and max """
+    import xlsxwriter
+    a = np.zeros(shape=(RLST.shape[1], 2))
+    a[:, 0] = RLST.min(axis=0)
+    a[:, 1] = RLST.max(axis=0)
+    y = ['Minimum', 'Maximum']
+    file_xxx = '_descriptive' + str(cluster_id) + '.xlsx'
+    workbook = xlsxwriter.Workbook(file_xxx)
+    worksheet5 = workbook.add_worksheet()
+    worksheet5.name = 'descriptives'
+    worksheet5.write(0, 0, 'descriptive stats')
+    for i in range(2):
+        worksheet5.write(1, i+1, y[i])
+    for i in range(len(x)):
+        worksheet5.write(i+2, 0, x[i])
+    for i in range(a.shape[1]):
+        for j in range(a.shape[0]):
+            worksheet5.write(j+2, i+1, str(a[j, i]))
+    workbook.close()
+
+
+def scatter_2d_plots(data2, LL, c_id, f):
+    """ Display 2d scatter plots """
+    import matplotlib.pyplot as plt
+    k = data2.shape[1]
+    for i in range(k):
+        for l in range(k):
+            if i > l:
+                title = "cluster_" + str(c_id) + "_" + LL[i] + "_" + LL[l]
+                plt.figure()
+                plt.title("cluster: " + str(c_id))
+                plt.scatter(data2[:, i], data2[:, l], 1, marker="+")
+                plt.xlabel(LL[i])
+                plt.ylabel(LL[l])
+                plt.savefig(title + '.png', dpi=300)
+                plt.show()
+                plt.close("all")
+
+
+def descriptive_stats(data, LABELmonths3, f, lst_or_rlst):
     """Compute & save to xlsx descriptive statistics for Rdata """
-    print('\n Main call that defines cluster matrices for further processing')
-    f.write('\n Define cluster matrices for further processing')
+    print('\nCompute & save (to xlsx) descriptive statistics')
+    f.write('\n Compute & save descriptive statistics')
     No_of_clusters = data[:, 0].max(axis=0)
     for cluster_id in range(1, int(No_of_clusters)+1):
         datacluster = define_cluster_matrices(data, cluster_id, f)
         data2 = datacluster[:, 1:datacluster.shape[1]]
-        print('           ', data2.shape)
+        compute_descriptive_stats(data2, LABELmonths3, cluster_id)
+        scatter_2d_plots(data2, LABELmonths3, cluster_id, f)
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
             Hmin, Hmax):
     """ Main run module of SVR_CLU.py"""
     f, oldpath = findpaths_data2csv(data)
-    xyxstr = 'Define cluster matrices ? '
+    xyxstr = 'Display statistics of input Data ? '
     Display_yesno2 = input_screen_str_yn(xyxstr)
     if Display_yesno2 == 'Y' or Display_yesno2 == 'y':
         f.write('\n DISPLAY:descriptive stats of input data')
-        test_call(data, LabelLSTxls, f)
+        descriptive_stats(data, LabelLSTxls, f, 'LST')
     f.close()
     from os import chdir
     chdir(oldpath)
