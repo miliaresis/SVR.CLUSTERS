@@ -237,53 +237,7 @@ def define_cluster_matrices(data, k, f):
     return cluster_matrix
 
 
-def compute_descriptive_stats(RLST, x, cluster_id):
-    """compute mean, st.dev, kurtosis, skew"""
-    from scipy.stats import kurtosis
-    from scipy.stats import skew
-    import xlsxwriter
-    a = np.zeros(shape=(RLST.shape[1], 6))
-    a[:, 0] = RLST.min(axis=0)
-    a[:, 1] = RLST.max(axis=0)
-    a[:, 2] = RLST.mean(axis=0)
-    a[:, 3] = RLST.std(axis=0)
-    a[:, 4] = skew(RLST, axis=0)
-    a[:, 5] = kurtosis(RLST, axis=0)
-    y = ['Minimum', 'Maximum', 'Mean', 'St.Dev.', 'Skew', 'Kurtosis']
-    file_xxx = '_descriptive' + str(cluster_id) + '.xlsx'
-    workbook = xlsxwriter.Workbook(file_xxx)
-    worksheet5 = workbook.add_worksheet()
-    worksheet5.name = 'descriptives'
-    worksheet5.write(0, 0, 'descriptive stats')
-    for i in range(6):
-        worksheet5.write(1, i+1, y[i])
-    for i in range(len(x)):
-        worksheet5.write(i+2, 0, x[i])
-    for i in range(a.shape[1]):
-        for j in range(a.shape[0]):
-            worksheet5.write(j+2, i+1, str(a[j, i]))
-    workbook.close()
-
-
-def scatter_2d_plots(data2, LL, c_id, f):
-    """ Display 2d scatter plots """
-    import matplotlib.pyplot as plt
-    k = data2.shape[1]
-    for i in range(k):
-        for l in range(k):
-            if i > l:
-                title = "cluster_" + str(c_id) + "_" + LL[i] + "_" + LL[l]
-                plt.figure()
-                plt.title("cluster: " + str(c_id))
-                plt.scatter(data2[:, i], data2[:, l], 1, marker="+")
-                plt.xlabel(LL[i])
-                plt.ylabel(LL[l])
-                plt.savefig(title + '.png', dpi=300)
-                plt.show()
-                plt.close("all")
-
-
-def descriptive_stats(data, LABELmonths3, f, lst_or_rlst):
+def test_call(data, LABELmonths3, f):
     """Compute & save to xlsx descriptive statistics for Rdata """
     print('\nCompute & save (to xlsx) descriptive statistics')
     f.write('\n Compute & save descriptive statistics')
@@ -291,8 +245,7 @@ def descriptive_stats(data, LABELmonths3, f, lst_or_rlst):
     for cluster_id in range(1, int(No_of_clusters)+1):
         datacluster = define_cluster_matrices(data, cluster_id, f)
         data2 = datacluster[:, 1:datacluster.shape[1]]
-        compute_descriptive_stats(data2, LABELmonths3, cluster_id)
-        scatter_2d_plots(data2, LABELmonths3, cluster_id, f)
+        print('cluster: ', cluster_id, ' data dimensions: ', data2.shape)
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
@@ -303,7 +256,7 @@ def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
     Display_yesno2 = input_screen_str_yn(xyxstr)
     if Display_yesno2 == 'Y' or Display_yesno2 == 'y':
         f.write('\n DISPLAY:descriptive stats of input data')
-        descriptive_stats(data, LabelLSTxls, f, 'LST')
+        test_call(data, LabelLSTxls, f)
     f.close()
     from os import chdir
     chdir(oldpath)
