@@ -225,8 +225,8 @@ def define_cluster_matrices(data, k, f):
         if data[i, 0] == k:
             cluster_elements = cluster_elements + 1
     file_xxx = '_descriptive' + str(k) + '.xlsx'
-    print('   Cluster: ', k, '  size: ', cluster_elements, ' ', file_xxx)
-    f.write('\n' + file_xxx + ' pixels: ' + str(cluster_elements))
+    print('   Cluster: ', k, '  size: ', cluster_elements+1, ' ', file_xxx)
+    f.write('\n' + file_xxx + ' pixels: ' + str(cluster_elements+1))
     cluster_matrix = np.zeros(shape=(cluster_elements+1, data.shape[1]))
     m = -1
     for i in range(data.shape[0]):
