@@ -4,9 +4,10 @@
 * **Processing:** 
 1. Visualization of feature space with 2-d plots per cluster
 1. Statistics of clusters (min, max calculation)
-1. Multipe Linear regression of feature space per cluster (_under development_).
+1. Multipe Linear regression of feature space per cluster (_under development_)
+1.
 
-
+* Table 1. Min, max valuer per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs
 | NBG      	| ALOS   	| ALOS  	| SRTM   	| SRTM  	| ASTER  	| ASTER 	|
 |----------	|--------	|-------	|--------	|-------	|--------	|-------	|
 | Clusters 	| Min    	| Max   	| Min    	| Max   	| Min    	| Max   	|
