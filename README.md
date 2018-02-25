@@ -1,5 +1,5 @@
 # SVR.CLUSTERS
-* Clusters post-processing:
+Clusters post-processing:
 1. Visualization of feature space with 2-d plots per cluster
 1. Statistics of clusters (min, max calculation)
 1. Multipe Linear regression of feature space per cluster (_under development_)
