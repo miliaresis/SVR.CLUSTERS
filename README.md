@@ -7,7 +7,8 @@
 1. Multipe Linear regression of feature space per cluster (_under development_)
 1. . . . . . .
 
-# Table 1. Min, max valuer per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs
+# Table 1. 
+* Min, max valuer per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs
 
 | NBG      	| ALOS   	| ALOS  	| SRTM   	| SRTM  	| ASTER  	| ASTER 	|
 |----------	|--------	|-------	|--------	|-------	|--------	|-------	|
@@ -21,5 +22,7 @@
 | 7        	| 7.5    	| 13    	| 6.9    	| 11.9  	| -21.8  	| -11.2 	|
 | 3        	| 13     	| 335.9 	| 11.9   	| 305.9 	| -634.7 	| -21.8 	|
 
+Figure 1. 
+* The 2-d feature space per cluster visualization
 
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping.png)
