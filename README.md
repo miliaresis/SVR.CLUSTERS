@@ -9,7 +9,7 @@
 1. . . . . . .
 
 # Table 1. 
-* Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs
+Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs
 
 | NBG      	| ALOS   	| ALOS  	| SRTM   	| SRTM  	| ASTER  	| ASTER 	|
 |----------	|--------	|-------	|--------	|-------	|--------	|-------	|
