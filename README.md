@@ -1,10 +1,11 @@
 # SVR.CLUSTERS
-* Further modeling of clusters. Data requirements, Cluster image and the feature space images derived from related projects (SVR.DEM  _https://github.com/miliaresis/SVR.DEM_ and SVR). The cluster image is named MASK.TIF (o for no-data-mask while 1, 2 ... for cluster classes). The feature space images (eg. pc2, pc3 reconstructed elevations) used in clustering are named 01.tif, 02.tif, 03.tif, etc. etc.
+* Further modeling of clusters. 
+* Data requirements, Cluster image and the feature space images derived from related projects (SVR.DEM  _https://github.com/miliaresis/SVR.DEM_ and SVR). The cluster image is named MASK.TIF (o for no-data-mask while 1, 2 ... for cluster classes). The feature space images (eg. pc2, pc3 reconstructed elevations) used in clustering are named 01.tif, 02.tif, 03.tif, etc. etc.
 * The vector data model inside the SVR.CLUSTERS differs from SVR & SVR.DEM projects, since the first column indicate a) 0 for no-data, and b) 1, 2 ... for cluster classes, while the next columns correspond to image data files (01, 02, 03 ..), for example the residual elevations of ALOS, SRTM, & ASTER GDEMs.
 * Processing 
-1 Visualization of feature space with 2-d plots per cluster
-1 statistics of clusters (min, max calculation)
-1 Multipe Linear regression of feature space per cluster (_under development_).
+  1 Visualization of feature space with 2-d plots per cluster
+  1 statistics of clusters (min, max calculation)
+  1 Multipe Linear regression of feature space per cluster (_under development_).
 
 
 | NBG      	| ALOS   	| ALOS  	| SRTM   	| SRTM  	| ASTER  	| ASTER 	|
