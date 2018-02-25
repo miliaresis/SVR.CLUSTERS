@@ -4,7 +4,7 @@
 * The vector data model inside the SVR.CLUSTERS differs from SVR & SVR.DEM projects, since the first column indicate a) 0 for no-data, and b) 1, 2 ... for cluster classes, while the next columns correspond to image data files (01, 02, 03 ..), for example the residual elevations of ALOS, SRTM, & ASTER GDEMs.
 * Processing 
 1. Visualization of feature space with 2-d plots per cluster
-1. statistics of clusters (min, max calculation)
+1. Statistics of clusters (min, max calculation)
 1. Multipe Linear regression of feature space per cluster (_under development_).
 
 
