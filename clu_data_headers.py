@@ -36,6 +36,27 @@ def phead(xy, ML, x2, x3, Lmn, Lmx, LDIR, T):
     print('\nData headers available: ', Headers_ALL)
 
 
+def dataCL0(tiff_import_options):
+    """TEST DATA: ALOS, SRTM, ASTER DEMs: residual elevations """
+    print('\n--> TEST DATA:ALOS, SRTM, ASTER GDEMs residual H')
+# Main figure labels (title, x-axis, y-axis)
+    ML = ['H, m', 'Longitude,DD', 'Latitude, DD']
+    # Geograhic extent (X-LON-min, X-LON-max, Y-LAT-min, Y-LAT-max)
+    xy = [54.2362, 54.6810, 27.1107, 27.5555]
+# tics for axes of figures and cross-correlation matrix
+    x2 = ['A', 'S', 'G']
+    x3 = ['ALOS', 'SRTM', 'ASTER']
+# Histograms domain for data (eg. DEM) & reconstructed data (eg. DEM)
+    Lmin = -25
+    Lmax = 25
+# PIL Library is used for TIF file import
+    T = tiff_import_options[0]
+# Sub-directory for image files or vector matrix
+    LDIR = 'testdata'
+    phead(xy, ML, x2, x3, Lmin, Lmax, LDIR, T)
+    return (xy, ML, x2, x3, Lmin, Lmax, LDIR, T)
+
+
 def dataCL1(tiff_import_options):
     """ALOS, SRTM, ASTER DEMs: residual elevations """
     print('\n--> ALOS, SRTM, ASTER GDEMs residual H, 1s lat lon WGS84,EGM96')

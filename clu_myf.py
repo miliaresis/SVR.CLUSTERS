@@ -260,7 +260,7 @@ def compute_descriptive_stats(RLST, x, cluster_id):
 
 
 def scatter_2d_plots(data2, LL, c_id, f):
-    """ Display 2d scatter plots """
+    """ Display 2d scatter plots of the feature space per cluster """
     import matplotlib.pyplot as plt
     k = data2.shape[1]
     for i in range(k):
@@ -277,10 +277,9 @@ def scatter_2d_plots(data2, LL, c_id, f):
                 plt.close("all")
 
 
-def descriptive_stats(data, LABELmonths3, f, lst_or_rlst):
-    """Compute & save to xlsx descriptive statistics for Rdata """
-    print('\nCompute & save (to xlsx) descriptive statistics')
-    f.write('\n Compute & save descriptive statistics')
+def descriptive_stats(data, LABELmonths3, f):
+    """Display 2-d feature space """
+    f.write('\n Display 2-d feature space components per cluste')
     No_of_clusters = data[:, 0].max(axis=0)
     for cluster_id in range(1, int(No_of_clusters)+1):
         datacluster = define_cluster_matrices(data, cluster_id, f)
@@ -293,11 +292,11 @@ def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
             Hmin, Hmax):
     """ Main run module of SVR_CLU.py"""
     f, oldpath = findpaths_data2csv(data)
-    xyxstr = 'Display statistics of input Data ? '
+    xyxstr = 'Display 2-d feature space per cluster ? '
     Display_yesno2 = input_screen_str_yn(xyxstr)
     if Display_yesno2 == 'Y' or Display_yesno2 == 'y':
-        f.write('\n DISPLAY:descriptive stats of input data')
-        descriptive_stats(data, LabelLSTxls, f, 'LST')
+        f.write('\n Display 2-d feature space')
+        descriptive_stats(data, LabelLSTxls, f)
     f.close()
     from os import chdir
     chdir(oldpath)
