@@ -8,6 +8,7 @@
 1.
 
 * Table 1. Min, max valuer per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs
+
 | NBG      	| ALOS   	| ALOS  	| SRTM   	| SRTM  	| ASTER  	| ASTER 	|
 |----------	|--------	|-------	|--------	|-------	|--------	|-------	|
 | Clusters 	| Min    	| Max   	| Min    	| Max   	| Min    	| Max   	|
