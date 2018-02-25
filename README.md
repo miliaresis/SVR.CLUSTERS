@@ -25,6 +25,6 @@ Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER G
 
 # Figure 1. 
 
-The 2-d feature space per cluster visualization
+2-d feature space per cluster visualization
 
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping.png)
