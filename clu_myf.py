@@ -274,6 +274,11 @@ def Linear_Regression(data2, LL, c_id, f):
     worksheet5.name = 'Linear_regression'
     worksheet5.write(0, 0, 'linear regression')
     worksheet5.write(0, 1, 'cluster ' + str(c_id))
+    if (c_id == 0):
+        worksheet5.write(0, 1, 'regression for all data')
+        file_xxx = '_linear_regression_all_data_' + '.xlsx'
+        print('\n Linear regression for all data ', file_xxx, ' \n')
+        f.write('\n Linear regression for all data  ' + file_xxx)
     for i in range(len(y)):
         worksheet5.write(1, i+1, y[i])
     k = data2.shape[1]
@@ -316,12 +321,20 @@ def scatter_2d_plots(data2, LL, c_id, f):
                 plt.close("all")
 
 
+def linear_Regression_of_all_data(data, LL, c_id, f):
+    """Compute linear regression of all data """
+    data2 = np.zeros(shape=(data.shape[0], data.shape[1]-1))
+    data2 = data[:, 1:data.shape[1]]
+    Linear_Regression(data2, LL, c_id, f)
+
+
 def descriptive_stats(data, LABELmonths3, f):
     """Cluster stats main calls """
     f.write('\n Display 2-d feature space components per cluster')
     f.write('\n Compute linear regression per 2-d features per cluster')
     print('\n Compute min, max stats, linear regression per 2-d features and ',
           'feature space 2-d plots per cluster')
+    linear_Regression_of_all_data(data, LABELmonths3, 0, f)
     No_of_clusters = data[:, 0].max(axis=0)
     for cluster_id in range(1, int(No_of_clusters)+1):
         datacluster, size = define_cluster_matrices(data, cluster_id, f)
