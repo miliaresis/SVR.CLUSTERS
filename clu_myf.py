@@ -225,31 +225,34 @@ def define_cluster_matrices(data, k, f):
         if data[i, 0] == k:
             cluster_elements = cluster_elements + 1
     file_xxx = '_descriptive' + str(k) + '.xlsx'
-    print('   Cluster: ', k, '  size: ', cluster_elements+1, ' ', file_xxx)
-    f.write('\n' + file_xxx + ' pixels: ' + str(cluster_elements+1))
-    cluster_matrix = np.zeros(shape=(cluster_elements+1, data.shape[1]))
+    size = cluster_elements + 1
+    print('   Cluster: ', k, '  size: ', size, ' ', file_xxx)
+    f.write('\n' + file_xxx + ' pixels: ' + str(size))
+    cluster_matrix = np.zeros(shape=(size, data.shape[1]))
     m = -1
     for i in range(data.shape[0]):
         if data[i, 0] == k:
             m = m + 1
             for l in range(1, data.shape[1]):
                 cluster_matrix[m, l] = data[i, l]
-    return cluster_matrix
+    return cluster_matrix, size
 
 
-def compute_descriptive_stats(RLST, x, cluster_id):
+def compute_descriptive_stats(RLST, x, cluster_id, size):
     """compute min and max """
     import xlsxwriter
-    a = np.zeros(shape=(RLST.shape[1], 2))
+    a = np.zeros(shape=(RLST.shape[1], 3))
     a[:, 0] = RLST.min(axis=0)
     a[:, 1] = RLST.max(axis=0)
-    y = ['Minimum', 'Maximum']
+    a[:, 2] = size
+    y = ['Minimum', 'Maximum', 'pixels']
     file_xxx = '_descriptive' + str(cluster_id) + '.xlsx'
     workbook = xlsxwriter.Workbook(file_xxx)
     worksheet5 = workbook.add_worksheet()
     worksheet5.name = 'descriptives'
     worksheet5.write(0, 0, 'descriptive stats')
-    for i in range(2):
+    worksheet5.write(0, 1, 'cluster ' + str(cluster_id))
+    for i in range(len(y)):
         worksheet5.write(1, i+1, y[i])
     for i in range(len(x)):
         worksheet5.write(i+2, 0, x[i])
@@ -257,6 +260,22 @@ def compute_descriptive_stats(RLST, x, cluster_id):
         for j in range(a.shape[0]):
             worksheet5.write(j+2, i+1, str(a[j, i]))
     workbook.close()
+
+
+def Linear_Regression(data2, LL, c_id, f):
+    """Linear Regression y = a * x +b """
+    from scipy.stats import linregress
+    k = data2.shape[1]
+    for i in range(k):
+        for l in range(k):
+            if i > l:
+                X = np.zeros(shape=(data2.shape[0], 2))
+                X[:, 0] = data2[:, i]
+                X[:, 1] = data2[:, l]
+                slope, intercept, r_value, p_value, std_err = linregress(X)
+                print(str(c_id), ' X: ', LL[i], ' Y: ', LL[l], 'a: ',
+                      slope, ' b: ', intercept, ' r:', r_value, ' p_value: ',
+                      p_value, 'str: ', std_err, '\n')
 
 
 def scatter_2d_plots(data2, LL, c_id, f):
@@ -278,14 +297,18 @@ def scatter_2d_plots(data2, LL, c_id, f):
 
 
 def descriptive_stats(data, LABELmonths3, f):
-    """Display 2-d feature space """
-    f.write('\n Display 2-d feature space components per cluste')
+    """Cluster stats main calls """
+    f.write('\n Display 2-d feature space components per cluster')
+    f.write('\n Compute linear regression per 2-d features per cluster')
+    print('\n Compute min, max stats, linear regression per 2-d features and ',
+          'feature space 2-d plots per cluster')
     No_of_clusters = data[:, 0].max(axis=0)
     for cluster_id in range(1, int(No_of_clusters)+1):
-        datacluster = define_cluster_matrices(data, cluster_id, f)
+        datacluster, size = define_cluster_matrices(data, cluster_id, f)
         data2 = datacluster[:, 1:datacluster.shape[1]]
-        compute_descriptive_stats(data2, LABELmonths3, cluster_id)
+        compute_descriptive_stats(data2, LABELmonths3, cluster_id, size)
         scatter_2d_plots(data2, LABELmonths3, cluster_id, f)
+        Linear_Regression(data2, LABELmonths3, cluster_id, f)
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
