@@ -18,12 +18,11 @@
 # Table 2. 
 The linear regression indicate that perfect 2-d linear relationships exist (common for all 2-d pairs per cluster) for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges.  Notice also that **a + b = 1**
 
-| X     	| Y     	| a*(x)    	| +b      	| correlation 	| Std. Error 	|
-|--------	|--------	|----------	|---------	|-------------	|------------	|
-| SRTM   	| ALOS   	| 1.0985   	| -0.0985 	| 1           	| 0          	|
-| ASTER  	| ALOS   	| -0.52687 	| 1.52687 	| -1          	| 0          	|
-| ASTER  	| SRTM   	| -0.47962 	| 1.47962 	| -1          	| 0          	|
-
+| X     	| Y    	| a*(x)           	| +b               	| correlation 	| p 	| std.error                	|
+|-------	|------	|-----------------	|------------------	|-------------	|---	|--------------------------	|
+| SRTM  	| ALOS 	| 1.09850052619   	| -0.0985005255746 	| 1           	| 0 	| 0.000000000208527943367  	|
+| ASTER 	| ALOS 	| -0.526870536393 	| 1.52687053982    	| -1          	| 0 	| 0.0000000000466846053007 	|
+| ASTER 	| SRTM 	| -0.479627022318 	| 1.47962702487    	| -1          	| 0 	| 0.0000000000673680778821 	|
 
 # Table 3. 
 Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs.
