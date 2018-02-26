@@ -225,8 +225,9 @@ def define_cluster_matrices(data, k, f):
         if data[i, 0] == k:
             cluster_elements = cluster_elements + 1
     file_xxx = '_descriptive' + str(k) + '.xlsx'
+    file_xxx2 = '_linear_regression_cluster_' + str(k) + '.xlsx'
     size = cluster_elements + 1
-    print('   Cluster: ', k, '  size: ', size, ' ', file_xxx)
+    print('   Cluster: ', k, '  size: ', size, ' ', file_xxx, ' ', file_xxx2)
     f.write('\n' + file_xxx + ' pixels: ' + str(size))
     cluster_matrix = np.zeros(shape=(size, data.shape[1]))
     m = -1
@@ -265,7 +266,18 @@ def compute_descriptive_stats(RLST, x, cluster_id, size):
 def Linear_Regression(data2, LL, c_id, f):
     """Linear Regression y = a * x +b """
     from scipy.stats import linregress
+    import xlsxwriter
+    y = ['X-axis', 'Y-axis', 'a*(x)', '+b', 'correlation', 'p', 'std.error']
+    file_xxx = '_linear_regression_cluster_' + str(c_id) + '.xlsx'
+    workbook = xlsxwriter.Workbook(file_xxx)
+    worksheet5 = workbook.add_worksheet()
+    worksheet5.name = 'Linear_regression'
+    worksheet5.write(0, 0, 'linear regression')
+    worksheet5.write(0, 1, 'cluster ' + str(c_id))
+    for i in range(len(y)):
+        worksheet5.write(1, i+1, y[i])
     k = data2.shape[1]
+    ss = 0
     for i in range(k):
         for l in range(k):
             if i > l:
@@ -273,9 +285,17 @@ def Linear_Regression(data2, LL, c_id, f):
                 X[:, 0] = data2[:, i]
                 X[:, 1] = data2[:, l]
                 slope, intercept, r_value, p_value, std_err = linregress(X)
-                print(str(c_id), ' X: ', LL[i], ' Y: ', LL[l], 'a: ',
-                      slope, ' b: ', intercept, ' r:', r_value, ' p_value: ',
-                      p_value, 'str: ', std_err, '\n')
+                y[0] = LL[i]
+                y[1] = LL[l]
+                y[2] = str(slope)
+                y[3] = str(intercept)
+                y[4] = str(r_value)
+                y[5] = str(p_value)
+                y[6] = str(std_err)
+                ss = ss + 1
+                for kkk in range(len(y)):
+                    worksheet5.write(ss+2, kkk+1, y[kkk])
+    workbook.close()
 
 
 def scatter_2d_plots(data2, LL, c_id, f):
