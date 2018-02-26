@@ -6,8 +6,18 @@
 1. ... . . .etc. etc.
 * **Data requirements:** Cluster image and the feature space images derived from related projects (SVR.DEM  _https://github.com/miliaresis/SVR.DEM_ and SVR _https://github.com/miliaresis/SVR_). The cluster image is named MASK.TIF (0 for no-data-mask while 1, 2 ... for cluster classes). The feature space images (eg. pc2, pc3 reconstructed elevations) used in clustering are named 01.tif, 02.tif, 03.tif, etc. etc.
 * **The vector data model** inside the SVR.CLUSTERS differs from SVR & SVR.DEM projects, since the first column indicate a) 0 for no-data, and b) 1, 2 ... for cluster classes, while the next columns correspond to image data files (01, 02, 03 ..), for example the residual elevations of ALOS, SRTM, & ASTER GDEMs.
+* **The linear regression of 2-d feature space indicate that these particular relationships exist for all the clusters for the residual (pc2, pc3) reconstructed residual elevations in Zagros Ranges ! **
 
-# Table 1. 
+# Table 1. 2-d linear regressions of the feature space (redidual elevations)
+
+| X-axis 	| Y-axis 	| a*(x)    	| +b      	| correlation 	| std. Error 	|
+|--------	|--------	|----------	|---------	|-------------	|------------	|
+| SRTM   	| ALOS   	| 1.0985   	| -0.0985 	| 1           	| 0          	|
+| ASTER  	| ALOS   	| -0.52687 	| 1.52687 	| -1          	| 0          	|
+| ASTER  	| SRTM   	| -0.47962 	| 1.47962 	| -1          	| 0          	|
+
+
+# Table 2. 
 Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs
 
 | NBG      	| ALOS   	| ALOS  	| SRTM   	| SRTM  	| ASTER  	| ASTER 	|
