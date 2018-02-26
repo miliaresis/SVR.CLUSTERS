@@ -8,7 +8,7 @@
 * **The vector data model** inside the SVR.CLUSTERS differs from SVR & SVR.DEM projects, since the first column indicate a) 0 for no-data, and b) 1, 2 ... for cluster classes, while the next columns correspond to image data files (01, 02, 03 ..), for example the residual elevations of ALOS, SRTM, & ASTER GDEMs.
 
 # Table 1. 
-**The linear regression of 2-d feature space indicate that these PERFECT particular relationships exist for all the clusters for the residual (pc2, pc3) reconstructed residual elevations in Zagros Ranges**
+**The linear regression of 2-d feature space indicate that these PERFECT ! ! !  particular relationships exist for all the clusters ! ! ! for the residual (pc2, pc3) reconstructed residual elevations in Zagros Ranges ! ! ! **
 
 | X     	| Y     	| a*(x)    	| +b      	| correlation 	| Std. Error 	|
 |--------	|--------	|----------	|---------	|-------------	|------------	|
