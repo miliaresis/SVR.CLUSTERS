@@ -10,7 +10,7 @@
 # Table 1. 
 **The linear regression of 2-d feature space indicate that these PERFECT particular relationships exist for all the clusters for the residual (pc2, pc3) reconstructed residual elevations in Zagros Ranges**
 
-| X     	| Y     	| a*(x)    	| +b      	| correlation 	| std. Error 	|
+| X     	| Y     	| a*(x)    	| +b      	| correlation 	| Std. Error 	|
 |--------	|--------	|----------	|---------	|-------------	|------------	|
 | SRTM   	| ALOS   	| 1.0985   	| -0.0985 	| 1           	| 0          	|
 | ASTER  	| ALOS   	| -0.52687 	| 1.52687 	| -1          	| 0          	|
