@@ -18,7 +18,7 @@ The linear regression indicate that perfect 2-d linear relationships exist commo
 
 
 # Table 2. 
-Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs
+Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs.
 
 | NBG      	| ALOS   	| ALOS  	| SRTM   	| SRTM  	| ASTER  	| ASTER 	|
 |----------	|--------	|-------	|--------	|-------	|--------	|-------	|
