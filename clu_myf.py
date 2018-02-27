@@ -328,17 +328,38 @@ def linear_Regression_of_all_data(data, LL, c_id, f):
     Linear_Regression(data2, LL, c_id, f)
 
 
+def scatter3d(data2, LL, c_id, f):
+    """3d-scatergram per cluster """
+    import matplotlib.pyplot as plt
+    title = "cluster " + str(c_id)
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    plt.title(title)
+    x = data2[:, 2]
+    y = data2[:, 1]
+    z = data2[:, 0]
+    ax.scatter(x, y, z, s=1, marker='+')
+    ax.set_xlabel(LL[2])
+    ax.set_ylabel(LL[1])
+    ax.set_zlabel(LL[0])
+    plt.savefig("_plot3d_"+title+'.png', dpi=300)
+    plt.show()
+    plt.close("all")
+
+
 def descriptive_stats(data, LABELmonths3, f):
     """Cluster stats main calls """
     f.write('\n Display 2-d feature space components per cluster')
     f.write('\n Compute linear regression per 2-d features per cluster')
+    f.write('\n Display 3-d feature space components per cluster')
     print('\n Compute min, max stats, linear regression per 2-d features and ',
-          'feature space 2-d plots per cluster')
+          'feature space 2-d as well as 3-d plots per cluster')
     linear_Regression_of_all_data(data, LABELmonths3, 0, f)
     No_of_clusters = data[:, 0].max(axis=0)
     for cluster_id in range(1, int(No_of_clusters)+1):
         datacluster, size = define_cluster_matrices(data, cluster_id, f)
         data2 = datacluster[:, 1:datacluster.shape[1]]
+        scatter3d(data2, LABELmonths3, cluster_id, f)
         compute_descriptive_stats(data2, LABELmonths3, cluster_id, size)
         scatter_2d_plots(data2, LABELmonths3, cluster_id, f)
         Linear_Regression(data2, LABELmonths3, cluster_id, f)
