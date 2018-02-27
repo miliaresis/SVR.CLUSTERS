@@ -1,6 +1,7 @@
 # SVR.CLUSTERS
 **Clusters post-processing:**
 1. Visualization of feature space with 2-d plots per cluster
+1. Visualization of feature space with 3-d plots per cluster
 1. Statistics of clusters (min, max calculation)
 1. Linear regression of 2-d feature spaces (eg. 3 combinations for ALOS, SRTM, ASTER GDEMs) per cluster
 
