@@ -328,7 +328,7 @@ def linear_Regression_of_all_data(data, LL, c_id, f):
     Linear_Regression(data2, LL, c_id, f)
 
 
-def scatter3d(data2, LL, c_id, f):
+def scatter_3d(data2, LL, c_id, f):
     """3d-scatergram per cluster """
     import matplotlib.pyplot as plt
     title = "cluster " + str(c_id)
@@ -359,10 +359,10 @@ def descriptive_stats(data, LABELmonths3, f):
     for cluster_id in range(1, int(No_of_clusters)+1):
         datacluster, size = define_cluster_matrices(data, cluster_id, f)
         data2 = datacluster[:, 1:datacluster.shape[1]]
-        scatter3d(data2, LABELmonths3, cluster_id, f)
         compute_descriptive_stats(data2, LABELmonths3, cluster_id, size)
         scatter_2d_plots(data2, LABELmonths3, cluster_id, f)
         Linear_Regression(data2, LABELmonths3, cluster_id, f)
+        scatter_3d(data2, LABELmonths3, cluster_id, f)
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
