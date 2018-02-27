@@ -25,6 +25,10 @@ The linear regression indicate that perfect 2-d linear relationships exist (comm
 | ASTER 	| ALOS 	| -0.526870536393 	| 1.52687053982    	| -1          	| 0 	| 0.0000000000466846053007 	|
 | ASTER 	| SRTM 	| -0.479627022318 	| 1.47962702487    	| -1          	| 0 	| 0.0000000000673680778821 	|
 
+# Figure 1. 
+Selected **3d per cluster** for the feature space defined by residual (pc2,  pc3 reconstructed) ALOS, SRTM, ASTER GDEMs.
+![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_3d.jpg)
+
 # Table 3. 
 Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs.
 
@@ -40,8 +44,8 @@ Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER G
 | 7        	| 7.5    	| 13    	| 6.9    	| 11.9  	| -21.8  	| -11.2 	|
 | 3        	| 13     	| 335.9 	| 11.9   	| 305.9 	| -634.7 	| -21.8 	|
 
-# Figure 1. 
+# Figure 2. 
 
-2-d feature space visualization per cluster
+2-d feature space visualization per cluster for the feature space defined by residual (pc2,  pc3 reconstructed) ALOS, SRTM, ASTER GDEMs.
 
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping.png)
