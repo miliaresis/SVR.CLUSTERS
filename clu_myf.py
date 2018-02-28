@@ -363,7 +363,8 @@ def descriptive_stats(data, LABELmonths3, f):
         compute_descriptive_stats(data2, LABELmonths3, cluster_id, size)
         scatter_2d_plots(data2, LABELmonths3, cluster_id, f)
         Linear_Regression(data2, LABELmonths3, cluster_id, f)
-        scatter_3d(data2, LABELmonths3, cluster_id, f)
+        if data2.shape[1] == 3:
+            scatter_3d(data2, LABELmonths3, cluster_id, f)
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
