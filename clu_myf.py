@@ -330,6 +330,7 @@ def linear_Regression_of_all_data(data, LL, c_id, f):
 
 def scatter_3d(data2, LL, c_id, f):
     """3d-scatergram per cluster """
+    from mpl_toolkits.mplot3d import Axes3D
     import matplotlib.pyplot as plt
     title = "cluster " + str(c_id)
     fig = plt.figure()
@@ -353,7 +354,7 @@ def descriptive_stats(data, LABELmonths3, f):
     f.write('\n Compute linear regression per 2-d features per cluster')
     f.write('\n Display 3-d feature space components per cluster')
     print('\n Compute min, max stats, linear regression per 2-d features and ',
-          'feature space 2-d as well as 3-d plots per cluster')
+          'feature space 2-d as well as 3-d plots (if dim = 3)  per cluster')
     linear_Regression_of_all_data(data, LABELmonths3, 0, f)
     No_of_clusters = data[:, 0].max(axis=0)
     for cluster_id in range(1, int(No_of_clusters)+1):
