@@ -32,7 +32,7 @@ Selected **3d per cluster** scattergrams for the feature space defined by residu
 # Table 3. 
 Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs.
 
-| NBG      	| ALOS   	|       	| SRTM   	|       	| ASTER  	|       	|
+| NBG      	| ALOS   	|    (m)	| SRTM   	|   (m)  	| ASTER  	|    (m) 	|
 |----------	|--------	|-------	|--------	|-------	|--------	|-------	|
 | Clusters 	| Min    	| Max   	| Min    	| Max   	| Min    	| Max   	|
 | 3        	| -183.3 	| -8.2  	| -166.8 	| -7.4  	| 18.5   	| 350.8 	|
