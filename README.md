@@ -8,8 +8,7 @@
 * **Data requirements:** Cluster image and the feature space images derived from related projects (SVR.DEM  _https://github.com/miliaresis/SVR.DEM_ and SVR _https://github.com/miliaresis/SVR_). The cluster image is named MASK.TIF (0 for no-data-mask while 1, 2 ... for cluster classes). The feature space images (eg. pc2, pc3 reconstructed elevations) used in clustering are named 01.tif, 02.tif, 03.tif, etc. etc.
   1. Miliaresis, G. 2018. 3-d feature space (residual elevations)  & cluster image (datacl4) for the enlarged study area (data4) of SE Zagros Ranges. Mendeley Data, v.1, http://dx.doi.org/10.17632/rhw75rh6xk.1
 * **The vector data model** inside the SVR.CLUSTERS differs from SVR & SVR.DEM projects, since the first column indicate a) 0 for no-data, and b) 1, 2 ... for cluster classes, while the next columns correspond to image data files (01, 02, 03 ..), for example the residual elevations of ALOS, SRTM, & ASTER GDEMs.
-# Table 1. 
-2-d linear regressions for all data for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges. 
+* Table 1. _2-d linear regressions for all data for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges_ 
 
 | X     	| Y    	| a*(x)           	| +b               	| correlation     	| p 	| std.error           	|
 |-------	|------	|-----------------	|------------------	|-----------------	|---	|---------------------	|
@@ -17,8 +16,7 @@
 | ASTER 	| ALOS 	| -0.546761136998 	| 0.365189686874   	| -0.986233601935 	| 0 	| 0.0000173462688792  	|
 | ASTER 	| SRTM 	| -0.498902179662 	| 0.353890206081   	| -0.98451379167  	| 0 	| 0.0000168095510177  	|
 
-# Table 2. 
-The linear regression indicate that perfect 2-d linear relationships exist (common for all 2-d pairs per cluster) for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges.  Notice also that **a + b = 1**
+* Table 2. _The linear regression indicate that perfect 2-d linear relationships exist (common for all 2-d pairs per cluster) for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges.  Notice also that_ **a + b = 1**
 
 | X     	| Y    	| a*(x)           	| +b               	| correlation 	| p 	| std.error                	|
 |-------	|------	|-----------------	|------------------	|-------------	|---	|--------------------------	|
@@ -26,12 +24,10 @@ The linear regression indicate that perfect 2-d linear relationships exist (comm
 | ASTER 	| ALOS 	| -0.526870536393 	| 1.52687053982    	| -1          	| 0 	| 0.0000000000466846053007 	|
 | ASTER 	| SRTM 	| -0.479627022318 	| 1.47962702487    	| -1          	| 0 	| 0.0000000000673680778821 	|
 
-# Figure 1. 
-Selected **3d per cluster** scattergrams for the feature space defined by by residual elevations (pc2,  pc3 reconstructed ALOS, SRTM, ASTER GDEMs).
+* Figure 1. _Selected **3d per cluster** scattergrams for the feature space defined by by residual elevations (pc2,  pc3 reconstructed ALOS, SRTM, ASTER GDEMs)_
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_3d.jpg)
 
-# Table 3. 
-Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs.
+* Table 3. _Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs_
 
 | NBG      	| ALOS   	|    (m)	| SRTM   	|   (m)  	| ASTER  	|    (m) 	|
 |----------	|--------	|-------	|--------	|-------	|--------	|-------	|
