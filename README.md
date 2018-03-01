@@ -1,9 +1,9 @@
 # SVR.CLUSTERS
-**Clusters post-processing:**
-1. Visualization of feature space with 2-d plots per cluster
-1. Visualization of feature space with 3-d plots per cluster
-1. Statistics of clusters (min, max calculation)
-1. Linear regression of 2-d feature spaces (eg. 3 combinations for ALOS, SRTM, ASTER GDEMs) per cluster
+* **Clusters post-processing:**
+  1. Visualization of feature space with 2-d plots per cluster
+  1. Visualization of feature space with 3-d plots per cluster
+  1. Statistics of clusters (min, max calculation)
+  1. Linear regression of 2-d feature spaces (eg. 3 combinations for ALOS, SRTM, ASTER GDEMs) per cluster
 
 * **Data requirements:** Cluster image and the feature space images derived from related projects (SVR.DEM  _https://github.com/miliaresis/SVR.DEM_ and SVR _https://github.com/miliaresis/SVR_). The cluster image is named MASK.TIF (0 for no-data-mask while 1, 2 ... for cluster classes). The feature space images (eg. pc2, pc3 reconstructed elevations) used in clustering are named 01.tif, 02.tif, 03.tif, etc. etc.
   1. Miliaresis, G. 2018. 3-d feature space (residual elevations)  & cluster image for the enlarged SE Zagros Ranges. Mendeley Data, v.1, http://dx.doi.org/10.17632/rhw75rh6xk.1
