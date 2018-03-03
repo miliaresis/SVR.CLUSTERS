@@ -1,5 +1,5 @@
 # SVR.CLUSTERS
-* **Clusters post-processing:**
+* **Clusters post-processing,**  * A win python program (https://winpython.github.io/) consisting of 3 modules **clu_r.py** and the 2 library MODULEs **clu_data_headers**, & **clu_myf.py**, that perform:
   1. Visualization of feature space with 2-d plots per cluster
   1. Visualization of feature space with 3-d plots per cluster
   1. Statistics of clusters (min, max calculation)
