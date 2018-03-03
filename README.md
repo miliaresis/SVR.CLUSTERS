@@ -9,6 +9,13 @@
   * Miliaresis, G. 2018. 3-d feature space (residual elevations)  & cluster image (datacl4) for the enlarged study area (data4) of SE Zagros Ranges. Mendeley Data, v.1, _http://dx.doi.org/10.17632/rhw75rh6xk.1_
   * Cluster image and the feature space images derived from related projects (SVR & SVR.DEM). The cluster image is named MASK.TIF (0 for no-data-mask while 1, 2 ... for cluster classes). The feature space images (eg. pc2, pc3 reconstructed elevations) used in clustering are named 01.tif, 02.tif, 03.tif, etc. etc. 
   * **The vector data model** in SVR.CLUSTERS differs from SVR & SVR.DEM projects, since the first column indicate a) 0 for no-data, and b) 1, 2 ... for cluster classes, while the next columns correspond to image data files (01, 02, 03 ..), for example the residual elevations of ALOS, SRTM, & ASTER GDEMs.
+* **Publications** *Quantification & evaluation of digital elevation models*
+  1. Dimension reduction of multi-dimensional elevation data for DEMs optimization & evaluation (in review)
+  1. Miliaresis G., Paraschou Ch.V., 2011. An evaluation of the accuracy of the ASTER GDEM and the role of stack number: A case study of   Nisiros Island, Greece. *Remote Sensing Letters*  2(2):127-135. DOI:10.1080/01431161.2010.503667 
+  1. Miliaresis G., Delikaraoglou D., 2009. Effects of Percent Tree Canopy Density and DEM Mis-registration to SRTM/NED Vegetation Height Estimates. *Remote Sensing* 1(2):36-49, DOI:10.3390/rs1020036 
+  1. Miliaresis G., 2008. The Landcover Impact on the Aspect/Slope Accuracy Dependence of the SRTM-1 Elevation Data for the Humboldt Range. *Sensors* 8(5):3134-3149. DOI: 10.3390/s8053134. 
+  1. Miliaresis G., 2007. An upland object based modeling of the vertical accuracy of the SRTM-1 elevation dataset. *Journal of Spatial Sciences* 52(1):13-29. DOI: 10.1080/14498596.2007.9635097 
+  1. Miliaresis G., Paraschou Ch., 2005. Vertical accuracy of the SRTM DTED Level 1 of Crete. *Int. J. of Applied Earth Observation & GeoInformation* 7(1):49-59. DOI: 10.1016/j.jag.2004.12.001 
 * **Table 1.** _2-d linear regressions for all data for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges_ 
 
 | X     	| Y    	| a*(x)           	| +b               	| correlation     	| p 	| std.error           	|
