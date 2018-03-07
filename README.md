@@ -17,9 +17,7 @@
   1. Miliaresis G., 2007. An upland object based modeling of the vertical accuracy of the SRTM-1 elevation dataset. *Journal of Spatial Sciences* 52(1):13-29. DOI: 10.1080/14498596.2007.9635097 
   1. Miliaresis G., Paraschou Ch., 2005. Vertical accuracy of the SRTM DTED Level 1 of Crete. *Int. J. of Applied Earth Observation & GeoInformation* 7(1):49-59. DOI: 10.1016/j.jag.2004.12.001 
 
-
-* **Table 1.** Min max of residual elevations (pc2, pc3 reconstructed) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83).
-
+* **Table 1.** Min max of residual H (pc2, pc3) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83).
 | cluster 	| ALOS  	|     	| SRTM  	|     	| ASTER  	|       	| NED    	|       	| percent 	|
 |---------	|-------	|------	|-------	|------	|--------	|-------	|--------	|-------	|---------	|
 | cluster 	| min   	| max  	| min   	| max  	| min    	| max   	| min    	| max   	| %       	|
