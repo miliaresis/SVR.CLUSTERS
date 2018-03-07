@@ -9,7 +9,7 @@
   * Miliaresis, G. 2018. 3-d feature space (residual elevations)  & cluster image (datacl4) for the enlarged study area (data4) of SE Zagros Ranges. Mendeley Data, v.1, **_http://dx.doi.org/10.17632/rhw75rh6xk.1_** Related project SVR.DEM
   * Miliaresis, G. 2018. 46-d feature space (1-km, 8-day) & cluster image of SVR LST data (SW USA). Mendeley Data. v.1,  **_http://dx.doi.org/10.17632/zt9rzv9bwt.1_** Related project SVR (LST)
 
-![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.png)
+![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
 * **Publications** *Quantification & evaluation of digital elevation models*
   1. Dimension reduction of multi-dimensional elevation data for DEMs optimization & evaluation (in review)
   1. Miliaresis G., Paraschou Ch.V., 2011. An evaluation of the accuracy of the ASTER GDEM and the role of stack number: A case study of   Nisiros Island, Greece. *Remote Sensing Letters*  2(2):127-135. DOI:10.1080/01431161.2010.503667 
