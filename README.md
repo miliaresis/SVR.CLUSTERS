@@ -30,10 +30,10 @@
 | 3       	| 4.6   	| 6.3  	| 3.7   	| 5.1  	| -21.9  	| -14.4 	| 10.1   	| 14.4  	| 15.1    	|
 | 7       	| 6.3   	| 56.4 	| 5.1   	| 43.7 	| -235.6 	| -21.9 	| 14.4   	| 140.1 	| 10.5    	|
 
-* **Figure 1.** _Visualization of the 46 dimensional 8-day, 1-km, reconstructed LST_
+  **Figure 1.** _Visualization of the 46 dimensional 8-day, 1-km, reconstructed LST_
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
 
-* **Table 2.** _2-d linear regressions for all data for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges_ 
+  **Table 2.** _2-d linear regressions for all data for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges_ 
 
 | X     	| Y    	| a*(x)           	| +b               	| correlation     	| p 	| std.error           	|
 |-------	|------	|-----------------	|------------------	|-----------------	|---	|---------------------	|
@@ -41,7 +41,7 @@
 | ASTER 	| ALOS 	| -0.546761136998 	| 0.365189686874   	| -0.986233601935 	| 0 	| 0.0000173462688792  	|
 | ASTER 	| SRTM 	| -0.498902179662 	| 0.353890206081   	| -0.98451379167  	| 0 	| 0.0000168095510177  	|
 
-* **Table 3.** _The linear regression indicate that perfect 2-d linear relationships exist (common for all 2-d pairs per cluster) for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges.  Notice also that_ **a + b = 1**
+  **Table 3.** _The linear regression indicate that perfect 2-d linear relationships exist (common for all 2-d pairs per cluster) for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges.  Notice also that_ **a + b = 1**
 
 | X     	| Y    	| a*(x)           	| +b               	| correlation 	| p 	| std.error                	|
 |-------	|------	|-----------------	|------------------	|-------------	|---	|--------------------------	|
@@ -49,10 +49,10 @@
 | ASTER 	| ALOS 	| -0.526870536393 	| 1.52687053982    	| -1          	| 0 	| 0.0000000000466846053007 	|
 | ASTER 	| SRTM 	| -0.479627022318 	| 1.47962702487    	| -1          	| 0 	| 0.0000000000673680778821 	|
 
-* **Figure 2.** _Selected **3d per cluster** scattergrams for the feature space defined by by residual elevations (pc2,  pc3 reconstructed ALOS, SRTM, ASTER GDEMs)_
+  **Figure 2.** _Selected **3d per cluster** scattergrams for the feature space defined by by residual elevations (pc2,  pc3 reconstructed ALOS, SRTM, ASTER GDEMs)_
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_3d.jpg)
 
-* **Table 4.** _Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs_
+  **Table 4.** _Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs_
 
 | NBG      	| ALOS   	|    (m)	| SRTM   	|   (m)  	| ASTER  	|    (m) 	|
 |----------	|--------	|-------	|--------	|-------	|--------	|-------	|
@@ -66,10 +66,10 @@
 | 7        	| 7.5    	| 13    	| 6.9    	| 11.9  	| -21.8  	| -11.2 	|
 | 3        	| 13     	| 335.9 	| 11.9   	| 305.9 	| -634.7 	| -21.8 	|
 
-* **Figure 3.** _2-d feature space visualization per cluster for the feature space defined by residual elevations (pc2,  pc3 reconstructed ALOS, SRTM, ASTER GDEMs)_
+  **Figure 3.** _2-d feature space visualization per cluster for the feature space defined by residual elevations (pc2,  pc3 reconstructed ALOS, SRTM, ASTER GDEMs)_
 
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping.png)
 
-* **Figure 4.** _2-d feature space visualization per cluster for the feature space defined by residual elevations (pc2,  pc3 reconstructed **ALOS, SRTM, ASTER GDEMs & NED DTM**)_
+  **Figure 4.** _2-d feature space visualization per cluster for the feature space defined by residual elevations (pc2,  pc3 reconstructed **ALOS, SRTM, ASTER GDEMs & NED DTM**)_
 
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_4db.jpg)
