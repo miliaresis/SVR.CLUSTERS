@@ -22,7 +22,7 @@
 
   **Table 1.** Min max of residual H (pc2, pc3) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83).
 
-|         	| ALOS  	|     	| SRTM  	|     	| ASTER  	|       	| NED    	|       	| percent 	|
+|         	| ALOS  	|   (m)	| SRTM  	|   (m)	| ASTER  	|   (m)  	| NED    	|  (m)   	| percent 	|
 |---------	|-------	|------	|-------	|------	|--------	|-------	|--------	|-------	|---------	|
 | cluster 	| min   	| max  	| min   	| max  	| min    	| max   	| min    	| max   	| %       	|
 | 4       	| -41.2 	| 0.1  	| -31.5 	| 0.3  	| 4.5    	| 181   	| -104.8 	| -1    	| 11.2    	|
