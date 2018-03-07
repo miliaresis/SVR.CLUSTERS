@@ -5,6 +5,19 @@
   1. Statistics of clusters (min, max calculation)
   1. Linear regression of 2-d feature spaces (eg. 3 combinations for ALOS, SRTM, ASTER GDEMs) per cluster
 * **Video:** _https://vimeo.com/258236125_
+* **Table 1.** Min max of residual elevations (pc2, pc3 reconstructed) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83).
+
+| cluster 	| ALOS  	|     	| SRTM  	|     	| ASTER  	|       	| NED    	|       	| percent 	|
+|---------	|-------	|------	|-------	|------	|--------	|-------	|--------	|-------	|---------	|
+| cluster 	| min   	| max  	| min   	| max  	| min    	| max   	| min    	| max   	| %       	|
+| 4       	| -41.2 	| 0.1  	| -31.5 	| 0.3  	| 4.5    	| 181   	| -104.8 	| -1    	| 11.2    	|
+| 5       	| 0.1   	| 1.7  	| 0.3   	| 1.5  	| -2     	| 4.5   	| -1     	| 2.7   	| 15.2    	|
+| 1       	| 1.7   	| 2.6  	| 1.5   	| 2.2  	| -6.1   	| -2    	| 2.7    	| 5.1   	| 16.5    	|
+| 6       	| 2.6   	| 3.5  	| 2.2   	| 2.9  	| -9.9   	| -6.1  	| 5.1    	| 7.4   	| 16.1    	|
+| 2       	| 3.5   	| 4.6  	| 2.9   	| 3.7  	| -14.4  	| -9.9  	| 7.4    	| 10.1  	| 15.3    	|
+| 3       	| 4.6   	| 6.3  	| 3.7   	| 5.1  	| -21.9  	| -14.4 	| 10.1   	| 14.4  	| 15.1    	|
+| 7       	| 6.3   	| 56.4 	| 5.1   	| 43.7 	| -235.6 	| -21.9 	| 14.4   	| 140.1 	| 10.5    	|
+
 * **Data:** Cluster image and the feature space images derived from related projects (SVR & SVR.DEM). The cluster image is named MASK.TIF (0= no data, 1, 2 ... for cluster classes). The feature space images (eg. pc2, pc3 reconstructed elevations) used in clustering are named 01.tif, 02.tif, etc. **The vector data model** in SVR.CLUSTERS differs from SVR & SVR.DEM projects, since the first column indicate a) 0 for no-data, and b) 1, 2 ... for cluster classes, while the next columns correspond to image data files (01, 02, 03 ..), for example the residual elevations of ALOS, SRTM, ASTER GDEMs.
   * Miliaresis, G. 2018. **3-d feature space (residual elevations of ALOS, SRTM, ASTER, GDEMs)**  & cluster image (datacl4) for the enlarged study area (data4) of SE Zagros Ranges. Mendeley Data, v.1, **_http://dx.doi.org/10.17632/rhw75rh6xk.1_** Related project SVR.DEM
   * Miliaresis, G. 2018. **4-d feature space (residual elevations of ALOS, SRTM, ASTER GDEMs & NED DTM)** & cluster image (datacl2) for the Death Valley, SW USA (data2). Mendeley Data, v.1, **_http://dx.doi.org/10.17632/3jmcw6fggt.1_** Related project SVR.DEM
