@@ -78,6 +78,28 @@ def dataCL1(tiff_import_options):
     return (xy, ML, x2, x3, Lmin, Lmax, LDIR, T)
 
 
+def dataCL2(tiff_import_options):
+    """ALOS, SRTM, ASTER NED DEMs: residual elevations """
+    print('\n--> ALOS, SRTM, ASTER, GDEMs (EGM96) & NED DTM (NAVD 88)',
+          ' residual H, lat lon, WGS84')
+# Main figure labels (title, x-axis, y-axis)
+    ML = ['H, m', 'Longitude,DD', 'Latitude, DD']
+    # Geograhic extent (X-LON-min, X-LON-max, Y-LAT-min, Y-LAT-max)
+    xy = [54.2362, 54.6810, 27.1107, 27.5555]
+# tics for axes of figures and cross-correlation matrix
+    x2 = ['A', 'S', 'G', 'N']
+    x3 = ['ALOS', 'SRTM', 'ASTER', 'NED']
+# Histograms domain for data (eg. DEM) & reconstructed data (eg. DEM)
+    Lmin = -25
+    Lmax = 25
+# PIL Library is used for TIF file import
+    T = tiff_import_options[0]
+# Sub-directory for image files or vector matrix
+    LDIR = 'dataCL2'
+    phead(xy, ML, x2, x3, Lmin, Lmax, LDIR, T)
+    return (xy, ML, x2, x3, Lmin, Lmax, LDIR, T)
+
+
 def dataCL3(tiff_import_options):
     """LST residual 1-km, 8-day """
     print('\n--> LST residual 1-km, 8-day')

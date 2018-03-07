@@ -348,6 +348,26 @@ def scatter_3d(data2, LL, c_id, f):
     plt.close("all")
 
 
+def scatter_3db(data2, LL, c_id, f):
+    """3d-scatergram per cluster """
+    from mpl_toolkits.mplot3d import Axes3D
+    import matplotlib.pyplot as plt
+    title = "cluster_b" + str(c_id)
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    plt.title(title)
+    x = data2[:, 3]
+    y = data2[:, 1]
+    z = data2[:, 0]
+    ax.scatter(x, y, z, s=1, marker='+')
+    ax.set_xlabel(LL[3])
+    ax.set_ylabel(LL[1])
+    ax.set_zlabel(LL[0])
+    plt.savefig("_plot3d_"+title+'.png', dpi=300)
+    plt.show()
+    plt.close("all")
+
+
 def descriptive_stats(data, LABELmonths3, f):
     """Cluster stats main calls """
     f.write('\n Display 2-d feature space components per cluster')
@@ -365,6 +385,9 @@ def descriptive_stats(data, LABELmonths3, f):
         Linear_Regression(data2, LABELmonths3, cluster_id, f)
         if data2.shape[1] == 3:
             scatter_3d(data2, LABELmonths3, cluster_id, f)
+        if data2.shape[1] == 4:
+            scatter_3d(data2, LABELmonths3, cluster_id, f)
+            scatter_3db(data2, LABELmonths3, cluster_id, f)
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelLST, LabelLSTxls,
