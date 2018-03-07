@@ -17,6 +17,9 @@
   1. Miliaresis G., 2007. An upland object based modeling of the vertical accuracy of the SRTM-1 elevation dataset. *Journal of Spatial Sciences* 52(1):13-29. DOI: 10.1080/14498596.2007.9635097 
   1. Miliaresis G., Paraschou Ch., 2005. Vertical accuracy of the SRTM DTED Level 1 of Crete. *Int. J. of Applied Earth Observation & GeoInformation* 7(1):49-59. DOI: 10.1016/j.jag.2004.12.001 
 
+  **Figure 1.** _Visualization of the 4-d  dimensional ALOS, SRTM, ASTER, NED feature space with 3d pairs of scattergrams_
+![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping0.jpg)
+
   **Table 1.** Min max of residual H (pc2, pc3) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83).
 
 | cluster 	| ALOS  	|     	| SRTM  	|     	| ASTER  	|       	| NED    	|       	| percent 	|
@@ -30,7 +33,7 @@
 | 3       	| 4.6   	| 6.3  	| 3.7   	| 5.1  	| -21.9  	| -14.4 	| 10.1   	| 14.4  	| 15.1    	|
 | 7       	| 6.3   	| 56.4 	| 5.1   	| 43.7 	| -235.6 	| -21.9 	| 14.4   	| 140.1 	| 10.5    	|
 
-  **Figure 1.** _Visualization of the 46 dimensional 8-day, 1-km, reconstructed LST_
+  **Figure 2.** _Visualization of the 46 dimensional 8-day, 1-km, reconstructed LST_
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
 
   **Table 2.** _2-d linear regressions for all data for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges_ 
@@ -49,7 +52,7 @@
 | ASTER 	| ALOS 	| -0.526870536393 	| 1.52687053982    	| -1          	| 0 	| 0.0000000000466846053007 	|
 | ASTER 	| SRTM 	| -0.479627022318 	| 1.47962702487    	| -1          	| 0 	| 0.0000000000673680778821 	|
 
-  **Figure 2.** _Selected **3d per cluster** scattergrams for the feature space defined by by residual elevations (pc2,  pc3 reconstructed ALOS, SRTM, ASTER GDEMs)_
+  **Figure 3.** _Selected **3d per cluster** scattergrams for the 3-d feature space defined by by residual elevations (pc2,  pc3 reconstructed ALOS, SRTM, ASTER GDEMs)_
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_3d.jpg)
 
   **Table 4.** _Min, max values per cluster for the feature space defined by ALOS, SRTM, ASTER GDEMs_
@@ -66,10 +69,10 @@
 | 7        	| 7.5    	| 13    	| 6.9    	| 11.9  	| -21.8  	| -11.2 	|
 | 3        	| 13     	| 335.9 	| 11.9   	| 305.9 	| -634.7 	| -21.8 	|
 
-  **Figure 3.** _2-d feature space visualization per cluster for the feature space defined by residual elevations (pc2,  pc3 reconstructed ALOS, SRTM, ASTER GDEMs)_
+  **Figure 4.** _2-d feature space visualization per cluster for the 3-d feature space defined by residual elevations (pc2,  pc3 reconstructed ALOS, SRTM, ASTER GDEMs)_
 
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping.png)
 
-  **Figure 4.** _2-d feature space visualization per cluster for the feature space defined by residual elevations (pc2,  pc3 reconstructed **ALOS, SRTM, ASTER GDEMs & NED DTM**)_
+  **Figure 5.** _2-d feature space visualization per cluster for the 4-d feature space defined by residual elevations (pc2,  pc3 reconstructed **ALOS, SRTM, ASTER GDEMs & NED DTM**)_
 
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_4db.jpg)
