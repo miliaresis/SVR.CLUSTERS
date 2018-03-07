@@ -21,7 +21,7 @@
   * Miliaresis, G. 2018. **3-d feature space (residual elevations of ALOS, SRTM, ASTER, GDEMs)**  & cluster image (datacl4) for the enlarged study area (data4) of SE Zagros Ranges. Mendeley Data, v.1, **_http://dx.doi.org/10.17632/rhw75rh6xk.1_** Related project SVR.DEM
   * Miliaresis, G. 2018. **4-d feature space (residual elevations of ALOS, SRTM, ASTER GDEMs & NED DTM)** & cluster image (datacl2) for the Death Valley, SW USA (data2). Mendeley Data, v.1, **_http://dx.doi.org/10.17632/3jmcw6fggt.1_** Related project SVR.DEM
   * Miliaresis, G. 2018. **46-d feature space (1-km, 8-day, of SVR-LST data)** & cluster image (SW USA). Mendeley Data. v.1,  **_http://dx.doi.org/10.17632/zt9rzv9bwt.1_** Related project SVR (LST)
-
+* **Figure 1.** _Visualization of the 46 dimensional 8-day, 1-km, reconstructed LST_
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
 * **Publications** *Quantification & evaluation of digital elevation models*
   1. Dimension reduction of multi-dimensional elevation data for DEMs optimization & evaluation (in review)
