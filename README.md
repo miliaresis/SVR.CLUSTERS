@@ -55,10 +55,10 @@
 | ASTER 	| ALOS 	| -0.526870536393 	| 1.52687053982    	| -1          	| 0 	| 0.0000000000466846053007 	|
 | ASTER 	| SRTM 	| -0.479627022318 	| 1.47962702487    	| -1          	| 0 	| 0.0000000000673680778821 	|
 
-  **Figure c1.** _Selected **3d per cluster** scattergrams._  
+  **Figure c1.** _Selected 3d scattergrams per cluster._  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_3d.jpg)
 
-  **Table c3.** _Min, max statistice per cluster._  
+  **Table c3.** _Min, max statistics per cluster._  
 
 | NBG      	| ALOS   	|    (m)	| SRTM   	|   (m)  	| ASTER  	|    (m) 	|
 |----------	|--------	|-------	|--------	|-------	|--------	|-------	|
