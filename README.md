@@ -38,7 +38,7 @@
 * **B. 46-d visualization of the 8-day, 1-km, reconstructed LST of the SW USA**  
   **Figure b1.** _Visualization of the reconstructed LST._
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
-* **C. 3-d visualiation (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges**  
+* **C. 3-d visualzation (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges**  
   **Table c1.** _2-d linear regression, all data are considered._  
 
 | X     	| Y    	| a*(x)           	| +b               	| correlation     	| p 	| std.error           	|
@@ -72,6 +72,6 @@
 | 7        	| 7.5    	| 13    	| 6.9    	| 11.9  	| -21.8  	| -11.2 	|
 | 3        	| 13     	| 335.9 	| 11.9   	| 305.9 	| -634.7 	| -21.8 	|
 
-  **Figure c2.** _2-d feature space visualization per cluster._  
+  **Figure c2.** _2-d feature space visualization per cluster (3 combinations per cluster)._  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping.jpg)
 
