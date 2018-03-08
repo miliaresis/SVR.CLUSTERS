@@ -20,8 +20,7 @@
   *  **4-d feature space defined by of residual H (pc2, pc3 recosntructed H) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83) for Death Valley, SW USA**  
      **Figure 1.** _3d pairs (top:ALOS, SRTM, ASTER & bottom:ALOS, SRTM, NED) of scattergrams (4 out of 7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping0.jpg)  
-
-  **Table 1.** Min max of residual H (pc2, pc3) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83).
+     **Table 1.** Min max statistices for the 7 clusters.  
 
 |         	| ALOS  	|   (m)	| SRTM  	|   (m)	| ASTER  	|   (m)  	| NED    	|  (m)   	| percent 	|
 |---------	|-------	|------	|-------	|------	|--------	|-------	|--------	|-------	|---------	|
