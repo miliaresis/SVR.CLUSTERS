@@ -20,7 +20,7 @@
   * **A. 4-d feature space defined by of residual H (pc2, pc3 recosntructed H) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83) for Death Valley, SW USA**  
   **Figure a1.** _3d pairs (top:ALOS, SRTM, ASTER & bottom:ALOS, SRTM, NED) of scattergrams (4 out of 7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping0.jpg)  
-  **Table a1.** Min max statistices for the 7 clusters.  
+  **Table a1.** _Min max statistices for the 7 clusters._  
   
   |         	| ALOS  	|   (m)	| SRTM  	|   (m)	| ASTER  	|   (m)  	| NED    	|  (m)   	| percent 	|
   |---------	|-------	|------	|-------	|------	|--------	|-------	|--------	|-------	|---------	|
@@ -35,11 +35,11 @@
 
    **Figure a2.** _2-d feature space visualization (6 combinations) per cluster (7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_4db.jpg)  
-* 46-d visualization  
-  **Figure 2.** _Visualization of the 46 dimensional 8-day, 1-km, reconstructed LST_
+* **46-d visualization of the 8-day, 1-km, reconstructed LST**  
+  **Figure 2.** _Visualization of the reconstructed LST_
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
-
-  **Table 2.** _2-d linear regressions for all data for this particular feature space (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges_ 
+* **3-d visualiation (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges**  
+  **Table 2.** _2-d linear regression for the reconstructed LST (all data are considered)_  
 
 | X     	| Y    	| a*(x)           	| +b               	| correlation     	| p 	| std.error           	|
 |-------	|------	|-----------------	|------------------	|-----------------	|---	|---------------------	|
