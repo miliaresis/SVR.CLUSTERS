@@ -36,8 +36,10 @@
 
    **Figure a2.** _2-d feature space visualization (6 combinations) per cluster (7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_4db.jpg)  
+   **Figure a3.** _Clusters centroids (7 clusters)_  
+![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/map_centroids.jpg)  
 * **B. 46-d visualization of the 8-day, 1-km, reconstructed LST of the SW USA**  
-  **Figure b1.** _Visualization of the reconstructed LST._
+  **Figure b1.** _Visualization of the reconstructed LST._  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
 * **C. 3-d visualzation (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges**  
   **Table c1.** _2-d linear regression, all data are considered._  
