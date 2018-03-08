@@ -38,9 +38,22 @@
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_4db.jpg)  
    **Figure a3.** _Clusters centroids (7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/map_centroids.jpg)  
+   **Table a2.** _Clusters centroids (7 clusters)_  
+   
+| Cluster 	| ALOS 	| SRTM 	| ASTER 	| NED  	|
+|---------	|------	|------	|-------	|------	|
+| 1       	| 0.27 	| 0.21 	| 1.17  	| 0.69 	|
+| 2       	| 0.3  	| 0.23 	| 1.29  	| 0.76 	|
+| 3       	| 0.49 	| 0.38 	| 2.11  	| 1.24 	|
+| 4       	| 2.12 	| 1.63 	| 9.05  	| 5.32 	|
+| 5       	| 0.43 	| 0.33 	| 1.84  	| 1.08 	|
+| 6       	| 0.26 	| 0.2  	| 1.11  	| 0.65 	|
+| 7       	| 2.3  	| 1.77 	| 9.82  	| 5.77 	|
+
 * **B. 46-d visualization of the 8-day, 1-km, reconstructed LST of the SW USA**  
   **Figure b1.** _Visualization of the reconstructed LST._  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
+
 * **C. 3-d visualzation (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges**  
   **Table c1.** _2-d linear regression, all data are considered._  
 
