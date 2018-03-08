@@ -18,7 +18,7 @@
   1. Miliaresis G., Paraschou Ch., 2005. Vertical accuracy of the SRTM DTED Level 1 of Crete. *Int. J. of Applied Earth Observation & GeoInformation* 7(1):49-59. DOI: 10.1016/j.jag.2004.12.001 
 # Case studies: A:4-d, B:46-d, C:3-d
   * **A. 4-d feature space defined by of residual H (pc2, pc3 recosntructed H) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83) for Death Valley, SW USA**  
-  **Figure a1.** _3d pairs (top: ALOS,SRTM,ASTER & bottom: ALOS,SRTM,NED) of scattergrams of selected clusters(4 out of 7 clusters)_  
+  **Figure a1.** _3d scattergrams pairs (top: ALOS,SRTM,ASTER & bottom: ALOS,SRTM,NED) of selected (4 out of 7) clusters_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping0.jpg)  
   **Table a1.** _Min max statistics for the 7 clusters._  
   
