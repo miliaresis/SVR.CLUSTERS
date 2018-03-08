@@ -16,12 +16,11 @@
   1. Miliaresis G., 2008. The Landcover Impact on the Aspect/Slope Accuracy Dependence of the SRTM-1 Elevation Data for the Humboldt Range. *Sensors* 8(5):3134-3149. DOI: 10.3390/s8053134. 
   1. Miliaresis G., 2007. An upland object based modeling of the vertical accuracy of the SRTM-1 elevation dataset. *Journal of Spatial Sciences* 52(1):13-29. DOI: 10.1080/14498596.2007.9635097 
   1. Miliaresis G., Paraschou Ch., 2005. Vertical accuracy of the SRTM DTED Level 1 of Crete. *Int. J. of Applied Earth Observation & GeoInformation* 7(1):49-59. DOI: 10.1016/j.jag.2004.12.001 
-# Case studies
-  *  **4-d feature space defined by of residual H (pc2, pc3 recosntructed H) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83) for Death Valley, SW USA**  
-     **Figure 1.** _3d pairs (top:ALOS, SRTM, ASTER & bottom:ALOS, SRTM, NED) of scattergrams (4 out of 7 clusters)_  
+# Case studies (A, B, C)
+  * **A. 4-d feature space defined by of residual H (pc2, pc3 recosntructed H) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83) for Death Valley, SW USA**  
+  **Figure a1.** _3d pairs (top:ALOS, SRTM, ASTER & bottom:ALOS, SRTM, NED) of scattergrams (4 out of 7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping0.jpg)  
-     **Table 1.** Min max statistices for the 7 clusters.  
-
+  **Table a1.** Min max statistices for the 7 clusters.  
 |         	| ALOS  	|   (m)	| SRTM  	|   (m)	| ASTER  	|   (m)  	| NED    	|  (m)   	| percent 	|
 |---------	|-------	|------	|-------	|------	|--------	|-------	|--------	|-------	|---------	|
 | cluster 	| min   	| max  	| min   	| max  	| min    	| max   	| min    	| max   	| %       	|
@@ -33,7 +32,7 @@
 | 3       	| 4.6   	| 6.3  	| 3.7   	| 5.1  	| -21.9  	| -14.4 	| 10.1   	| 14.4  	| 15.1    	|
 | 7       	| 6.3   	| 56.4 	| 5.1   	| 43.7 	| -235.6 	| -21.9 	| 14.4   	| 140.1 	| 10.5    	|
 
-   **Figure 5.** _2-d feature space visualization per cluster for the 4-d feature space defined by residual elevations (pc2,  pc3 reconstructed **ALOS, SRTM, ASTER GDEMs & NED DTM**)_  
+   **Figure a2.** _2-d feature space visualization (6 combinations) per cluster (7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_4db.jpg)  
 * 46-d visualization  
   **Figure 2.** _Visualization of the 46 dimensional 8-day, 1-km, reconstructed LST_
