@@ -17,7 +17,7 @@
   1. Miliaresis G., 2007. An upland object based modeling of the vertical accuracy of the SRTM-1 elevation dataset. *Journal of Spatial Sciences* 52(1):13-29. DOI: 10.1080/14498596.2007.9635097 
   1. Miliaresis G., Paraschou Ch., 2005. Vertical accuracy of the SRTM DTED Level 1 of Crete. *Int. J. of Applied Earth Observation & GeoInformation* 7(1):49-59. DOI: 10.1016/j.jag.2004.12.001 
 # Case studies
-  * _4-d feature space  by residual elevations (pc2,  pc3 reconstructed **ALOS, SRTM, ASTER GDEMs & NED DTM**)_ Death Valley, SW USA
+  * _4-d feature space  by residual elevations (pc2,  pc3 reconstructed **ALOS, SRTM, ASTER GDEMs & NED DTM**)_ Death Valley, SW USA  
     **Figure 1.** _Visualization of the 4-d  dimensional ALOS, SRTM, ASTER, NED feature space with 3d pairs of scattergrams (4 out of 7 clusters)_
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping0.jpg)
 
