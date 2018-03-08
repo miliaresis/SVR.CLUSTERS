@@ -33,6 +33,9 @@
 | 3       	| 4.6   	| 6.3  	| 3.7   	| 5.1  	| -21.9  	| -14.4 	| 10.1   	| 14.4  	| 15.1    	|
 | 7       	| 6.3   	| 56.4 	| 5.1   	| 43.7 	| -235.6 	| -21.9 	| 14.4   	| 140.1 	| 10.5    	|
 
+   **Figure 5.** _2-d feature space visualization per cluster for the 4-d feature space defined by residual elevations (pc2,  pc3 reconstructed **ALOS, SRTM, ASTER GDEMs & NED DTM**)_  
+![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_4db.jpg)  
+* 46-d visualization  
   **Figure 2.** _Visualization of the 46 dimensional 8-day, 1-km, reconstructed LST_
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
 
@@ -73,6 +76,3 @@
 
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping.jpg)
 
-  **Figure 5.** _2-d feature space visualization per cluster for the 4-d feature space defined by residual elevations (pc2,  pc3 reconstructed **ALOS, SRTM, ASTER GDEMs & NED DTM**)_
-
-![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_4db.jpg)
