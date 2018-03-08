@@ -71,7 +71,7 @@
 
   **Figure 4.** _2-d feature space visualization per cluster for the 3-d feature space defined by residual elevations (pc2,  pc3 reconstructed ALOS, SRTM, ASTER GDEMs)_
 
-![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping.png)
+![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping.jpg)
 
   **Figure 5.** _2-d feature space visualization per cluster for the 4-d feature space defined by residual elevations (pc2,  pc3 reconstructed **ALOS, SRTM, ASTER GDEMs & NED DTM**)_
 
