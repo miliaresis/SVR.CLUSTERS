@@ -21,16 +21,17 @@
   **Figure a1.** _3d pairs (top:ALOS, SRTM, ASTER & bottom:ALOS, SRTM, NED) of scattergrams (4 out of 7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping0.jpg)  
   **Table a1.** Min max statistices for the 7 clusters.  
-|         	| ALOS  	|   (m)	| SRTM  	|   (m)	| ASTER  	|   (m)  	| NED    	|  (m)   	| percent 	|
-|---------	|-------	|------	|-------	|------	|--------	|-------	|--------	|-------	|---------	|
-| cluster 	| min   	| max  	| min   	| max  	| min    	| max   	| min    	| max   	| %       	|
-| 4       	| -41.2 	| 0.1  	| -31.5 	| 0.3  	| 4.5    	| 181   	| -104.8 	| -1    	| 11.2    	|
-| 5       	| 0.1   	| 1.7  	| 0.3   	| 1.5  	| -2     	| 4.5   	| -1     	| 2.7   	| 15.2    	|
-| 1       	| 1.7   	| 2.6  	| 1.5   	| 2.2  	| -6.1   	| -2    	| 2.7    	| 5.1   	| 16.5    	|
-| 6       	| 2.6   	| 3.5  	| 2.2   	| 2.9  	| -9.9   	| -6.1  	| 5.1    	| 7.4   	| 16.1    	|
-| 2       	| 3.5   	| 4.6  	| 2.9   	| 3.7  	| -14.4  	| -9.9  	| 7.4    	| 10.1  	| 15.3    	|
-| 3       	| 4.6   	| 6.3  	| 3.7   	| 5.1  	| -21.9  	| -14.4 	| 10.1   	| 14.4  	| 15.1    	|
-| 7       	| 6.3   	| 56.4 	| 5.1   	| 43.7 	| -235.6 	| -21.9 	| 14.4   	| 140.1 	| 10.5    	|
+  
+  |         	| ALOS  	|   (m)	| SRTM  	|   (m)	| ASTER  	|   (m)  	| NED    	|  (m)   	| percent 	|
+  |---------	|-------	|------	|-------	|------	|--------	|-------	|--------	|-------	|---------	|
+  | cluster 	| min   	| max  	| min   	| max  	| min    	| max   	| min    	| max   	| %       	|
+  | 4       	| -41.2 	| 0.1  	| -31.5 	| 0.3  	| 4.5    	| 181   	| -104.8 	| -1    	| 11.2    	|
+  | 5       	| 0.1   	| 1.7  	| 0.3   	| 1.5  	| -2     	| 4.5   	| -1     	| 2.7   	| 15.2    	|
+  | 1       	| 1.7   	| 2.6  	| 1.5   	| 2.2  	| -6.1   	| -2    	| 2.7    	| 5.1   	| 16.5    	|
+  | 6       	| 2.6   	| 3.5  	| 2.2   	| 2.9  	| -9.9   	| -6.1  	| 5.1    	| 7.4   	| 16.1    	|
+  | 2       	| 3.5   	| 4.6  	| 2.9   	| 3.7  	| -14.4  	| -9.9  	| 7.4    	| 10.1  	| 15.3    	|
+  | 3       	| 4.6   	| 6.3  	| 3.7   	| 5.1  	| -21.9  	| -14.4 	| 10.1   	| 14.4  	| 15.1    	|
+  | 7       	| 6.3   	| 56.4 	| 5.1   	| 43.7 	| -235.6 	| -21.9 	| 14.4   	| 140.1 	| 10.5    	|
 
    **Figure a2.** _2-d feature space visualization (6 combinations) per cluster (7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_4db.jpg)  
