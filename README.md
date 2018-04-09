@@ -44,15 +44,7 @@
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
 
 * **C. 3-d visualzation (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges**  
-  **Table c1.** _2-d linear regression, all data are considered._  
-
-| X     	| Y    	| a*(x)           	| +b               	| correlation     	| p 	| std.error           	|
-|-------	|------	|-----------------	|------------------	|-----------------	|---	|---------------------	|
-| SRTM  	| ALOS 	| 1.09396167786   	| -0.0211044935064 	| 0.999949028854  	| 0 	| 0.00000209006029549 	|
-| ASTER 	| ALOS 	| -0.546761136998 	| 0.365189686874   	| -0.986233601935 	| 0 	| 0.0000173462688792  	|
-| ASTER 	| SRTM 	| -0.498902179662 	| 0.353890206081   	| -0.98451379167  	| 0 	| 0.0000168095510177  	|
-
- 
+  
   **Figure c1.** _Selected 3d scattergrams per cluster._  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_3d.jpg)
 
