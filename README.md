@@ -37,17 +37,6 @@
    **Figure a2.** _2-d feature space visualization (6 combinations) per cluster (7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_4db.jpg)  
 
-  **Table a1.** _Linear regression lines (for the 2-d feature space components) that are common for every cluster (7 clusters)._ 
-
-| X-axis 	| Y-axis 	| a*(x)    	| +b      	| correlation 	| std.error 	|
-|--------	|--------	|----------	|---------	|-------------	|-----------	|
-| SRTM   	| ALOS   	| 1.2975   	| -0.2975 	| 1           	| 0         	|
-| ASTER  	| ALOS   	| -0.2344  	| 1.2344  	| -1          	| 0         	|
-| ASTER  	| SRTM   	| -0.18065 	| 1.18065 	| -1          	| 0         	|
-| NED    	| ALOS   	| 0.39872  	| 0.60127 	| 1           	| 0         	|
-| NED    	| SRTM   	| 0.3073   	| 0.69269 	| 1           	| 0         	|
-| NED    	| ASTER  	| -1.70103 	| 2.70103 	| -1          	| 0         	|
-
    **Figure a3.** _Clusters centroids (7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/map_centroids.jpg)  
 * **B. 46-d visualization of the 8-day, 1-km, reconstructed LST of the SW USA**  
@@ -63,14 +52,7 @@
 | ASTER 	| ALOS 	| -0.546761136998 	| 0.365189686874   	| -0.986233601935 	| 0 	| 0.0000173462688792  	|
 | ASTER 	| SRTM 	| -0.498902179662 	| 0.353890206081   	| -0.98451379167  	| 0 	| 0.0000168095510177  	|
 
-  **Table c2.** _The linear regression per cluster that is common for all 2-d pairs per cluster._  
-
-| X     	| Y    	| a*(x)           	| +b               	| correlation 	| p 	| std.error                	|
-|-------	|------	|-----------------	|------------------	|-------------	|---	|--------------------------	|
-| SRTM  	| ALOS 	| 1.09850052619   	| -0.0985005255746 	| 1           	| 0 	| 0.000000000208527943367  	|
-| ASTER 	| ALOS 	| -0.526870536393 	| 1.52687053982    	| -1          	| 0 	| 0.0000000000466846053007 	|
-| ASTER 	| SRTM 	| -0.479627022318 	| 1.47962702487    	| -1          	| 0 	| 0.0000000000673680778821 	|
-
+ 
   **Figure c1.** _Selected 3d scattergrams per cluster._  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_3d.jpg)
 
