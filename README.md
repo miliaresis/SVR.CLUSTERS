@@ -10,22 +10,8 @@
   * Miliaresis, G. 2018. **4-d feature space (residual elevations of ALOS, SRTM, ASTER GDEMs & NED DTM)** & cluster image (datacl2) for the Death Valley, SW USA (data2). Mendeley Data, v.1, **_http://dx.doi.org/10.17632/3jmcw6fggt.1_** Related project SVR.DEM
   * Miliaresis, G. 2018. **46-d feature space (1-km, 8-day, of SVR-LST data)** & cluster image (SW USA). Mendeley Data. v.1,  **_http://dx.doi.org/10.17632/zt9rzv9bwt.1_** Related project SVR (LST)
 # Case studies
-  * **A. 4-d feature space** (just for testing & visualization since the vertical datums differ)  
-  
-   **Table a1.** _Min max statistics for the 7 clusters._  
-  
-  |         	| ALOS  	|   (m)	| SRTM  	|   (m)	| ASTER  	|   (m)  	| NED    	|  (m)   	| percent 	|
-  |---------	|-------	|------	|-------	|------	|--------	|-------	|--------	|-------	|---------	|
-  | cluster 	| min   	| max  	| min   	| max  	| min    	| max   	| min    	| max   	| %       	|
-  | 4       	| -41.2 	| 0.1  	| -31.5 	| 0.3  	| 4.5    	| 181   	| -104.8 	| -1    	| 11.2    	|
-  | 5       	| 0.1   	| 1.7  	| 0.3   	| 1.5  	| -2     	| 4.5   	| -1     	| 2.7   	| 15.2    	|
-  | 1       	| 1.7   	| 2.6  	| 1.5   	| 2.2  	| -6.1   	| -2    	| 2.7    	| 5.1   	| 16.5    	|
-  | 6       	| 2.6   	| 3.5  	| 2.2   	| 2.9  	| -9.9   	| -6.1  	| 5.1    	| 7.4   	| 16.1    	|
-  | 2       	| 3.5   	| 4.6  	| 2.9   	| 3.7  	| -14.4  	| -9.9  	| 7.4    	| 10.1  	| 15.3    	|
-  | 3       	| 4.6   	| 6.3  	| 3.7   	| 5.1  	| -21.9  	| -14.4 	| 10.1   	| 14.4  	| 15.1    	|
-  | 7       	| 6.3   	| 56.4 	| 5.1   	| 43.7 	| -235.6 	| -21.9 	| 14.4   	| 140.1 	| 10.5    	|
-
-   **Figure a2.** _2-d feature space visualization (6 combinations) per cluster (7 clusters)_  
+    
+    **Figure a2.** _2-d feature space visualization per cluster (7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_4db.jpg)  
 
    **Figure a3.** _Clusters centroids (7 clusters)_  
@@ -34,8 +20,6 @@
   **Figure b1.** _Visualization of the reconstructed LST._  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
 
-* **C. 3-d visualzation (ALOS, SRTM, ASTER GDEMS) of the (pc2, pc3) reconstructed (residual) elevations in Zagros Ranges**  
-  
   **Figure c1.** _Selected 3d scattergrams per cluster._  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping_3d.jpg)
 
