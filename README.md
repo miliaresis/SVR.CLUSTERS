@@ -9,19 +9,10 @@
   * Miliaresis, G. 2018. **3-d feature space (residual elevations of ALOS, SRTM, ASTER, GDEMs)**  & cluster image (datacl4) for the enlarged study area (data4) of SE Zagros Ranges. Mendeley Data, v.1, **_http://dx.doi.org/10.17632/rhw75rh6xk.1_** Related project SVR.DEM
   * Miliaresis, G. 2018. **4-d feature space (residual elevations of ALOS, SRTM, ASTER GDEMs & NED DTM)** & cluster image (datacl2) for the Death Valley, SW USA (data2). Mendeley Data, v.1, **_http://dx.doi.org/10.17632/3jmcw6fggt.1_** Related project SVR.DEM
   * Miliaresis, G. 2018. **46-d feature space (1-km, 8-day, of SVR-LST data)** & cluster image (SW USA). Mendeley Data. v.1,  **_http://dx.doi.org/10.17632/zt9rzv9bwt.1_** Related project SVR (LST)
-* **Publications** *Quantification & evaluation of digital elevation models*
-  1. Dimension reduction of multi-dimensional elevation data for DEMs optimization & evaluation (in review)
-  1. Miliaresis G., Paraschou Ch.V., 2011. An evaluation of the accuracy of the ASTER GDEM and the role of stack number: A case study of   Nisiros Island, Greece. *Remote Sensing Letters*  2(2):127-135. DOI:10.1080/01431161.2010.503667 
-  1. Miliaresis G., Delikaraoglou D., 2009. Effects of Percent Tree Canopy Density and DEM Mis-registration to SRTM/NED Vegetation Height Estimates. *Remote Sensing* 1(2):36-49, DOI:10.3390/rs1020036 
-  1. Miliaresis G., 2008. The Landcover Impact on the Aspect/Slope Accuracy Dependence of the SRTM-1 Elevation Data for the Humboldt Range. *Sensors* 8(5):3134-3149. DOI: 10.3390/s8053134. 
-  1. Miliaresis G., 2007. An upland object based modeling of the vertical accuracy of the SRTM-1 elevation dataset. *Journal of Spatial Sciences* 52(1):13-29. DOI: 10.1080/14498596.2007.9635097 
-  1. Miliaresis G., Paraschou Ch., 2005. Vertical accuracy of the SRTM DTED Level 1 of Crete. *Int. J. of Applied Earth Observation & GeoInformation* 7(1):49-59. DOI: 10.1016/j.jag.2004.12.001 
-# Case studies: A:4-d, B:46-d, C:3-d
-  * **A. 4-d feature space defined by of residual H (pc2, pc3 recosntructed H) for ALOS, SRTM, ASTER GDEMs (EGM 96) & NED DTM (NAVD 83) for Death Valley, SW USA** (just for testing & visualization since the vertical datums differ)  
+# Case studies
+  * **A. 4-d feature space** (just for testing & visualization since the vertical datums differ)  
   
-  **Figure a1.** _3d scattergrams pairs (top: ALOS,SRTM,ASTER & bottom: ALOS,SRTM,NED) of selected (4 out of 7) clusters_  
-![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping0.jpg)  
-  **Table a1.** _Min max statistics for the 7 clusters._  
+   **Table a1.** _Min max statistics for the 7 clusters._  
   
   |         	| ALOS  	|   (m)	| SRTM  	|   (m)	| ASTER  	|   (m)  	| NED    	|  (m)   	| percent 	|
   |---------	|-------	|------	|-------	|------	|--------	|-------	|--------	|-------	|---------	|
