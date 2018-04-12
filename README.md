@@ -16,7 +16,7 @@
 
    **Figure a3.** _Clusters centroids (7 clusters)_  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/map_centroids.jpg)  
-* **B. 46-d visualization of the 8-day, 1-km, reconstructed LST of the SW USA**  
+
   **Figure b1.** _Visualization of the reconstructed LST._  
 ![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping2.jpg)
 
