@@ -62,6 +62,3 @@
 | 7        	| 7.5    	| 13    	| 6.9    	| 11.9  	| -21.8  	| -11.2 	|
 | 3        	| 13     	| 335.9 	| 11.9   	| 305.9 	| -634.7 	| -21.8 	|
 
-  **Figure c2.** _2-d feature space visualization (3 combinations) per cluster (7 clusters)._  
-![Example of output images](https://github.com/miliaresis/SVR.CLUSTERS/blob/master/mapping.jpg)
-
